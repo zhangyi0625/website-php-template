@@ -1,0 +1,83 @@
+
+<style>
+  .navbar {
+    padding: 0 !important;
+  }
+
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0rem;
+    padding-left: 1.8rem;
+    font-size: 14px;
+  }
+
+  .subnav-link {
+    color: #333 !important;
+    transition: color 0.3s ease;
+  }
+  .subnav-link.active,
+  .nav-item.active .subnav-link {
+    color: #0d6efd !important;
+  }
+</style>
+
+<div class="navbar navbar-expand-lg">
+  <div class="container-fluid" style="margin: 0 20px">
+    <a class="navbar-brand my-1" href="{pboot:sitepath}/">
+      <img
+        src="{pboot:sitelogo}"
+        class="logo-sm-height"
+        height="50"
+        style="max-width: 250px"
+      />
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-expanded="false"
+      aria-controls="navbarNav"
+    >
+      <i class="bi bi-list" style="font-size: 1.8rem"></i>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item {pboot:if('{sort:scode}'=='0')}active{/pboot:if}">
+          <a class="nav-link" href="{pboot:sitepath}/">首页</a>
+        </li>
+
+        {pboot:nav num=10 parent=0}
+        <li
+          class="nav-item {pboot:3if('[nav:scode]'=='{sort:pcode}' || '[nav:scode]'=='{sort:scode}')}active{/3pboot:if}"
+        >
+          <a class="nav-link" href="[nav:link]">[nav:name]</a>
+          {pboot:if([nav:soncount]>0)}
+          <ul class="nav flex-column ps-3">
+            {pboot:2nav parent=[nav:scode]}
+            <li
+              class="nav-item {pboot:2if('[2nav:scode]'=='{sort:scode}')}active{/pboot:2if}"
+            >
+              <a class="nav-link subnav-link" href="[2nav:link]">[2nav:name]</a>
+            </li>
+            {/pboot:2nav}
+          </ul>
+          {/pboot:if}
+        </li>
+        {/pboot:nav}
+
+        <li class="nav-item">
+          <a class="nav-link" href="{pboot:lgpath}&lg=cn">
+            <i class="bi bi-globe-asia-australia"></i>&nbsp;中文
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{pboot:lgpath}&lg=en">
+            <i class="bi bi-globe-asia-australia"></i>&nbsp;English
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

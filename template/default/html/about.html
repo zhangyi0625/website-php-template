@@ -1,0 +1,458 @@
+{include file=comm/head.html}
+
+{include file=comm/top5.html}
+<div class="slider-container3 slider-container4 slider-container1 fade-in-left" id="company-introduction">
+  <div class="container">
+      <div style="display: flex;align-items: center;">
+      <div class="slider-container1-item-left">
+        <div style="max-width: 580px;">
+              <p class="text-left">{pboot:companyname}</p>
+    <p style="font-weight: 600;
+font-size: clamp(1rem, 2vw, 1.25rem);
+color: #333333;margin: 9px 0 18px;text-align: left;">前身为宁波雅戈尔国际海运二部是宁波雅戈尔的子公司</p>
+    <p style="font-weight: 400;
+font-size: clamp(0.8rem, 1.5vw, 1rem);
+color: #333333;text-align: left;">雅运坤洲是中国外经贸部批准的国家一级货运代理企业。经中国交通部批准，获得无船承运人资格，雅运坤洲以专业团队和高质量服务赢得了一大批客户的长期支持。公司现与20多家国际性船东建立了良好合作关系并开通了直接订舱代理，随时提供具有竞争力和专业化的品质服务。
+</p>
+        </div>
+  </div>
+    <div class="slider-container1-item-right">
+        {pboot:slide num=4 gid=9}
+                    <img
+                        src="[slide:src]"
+                        class="slider-item-img1"
+                        width="316"
+                        height="169"
+                        style="object-fit: cover"
+                      />
+                        {/pboot:slide}
+  </div>
+  </div>
+  </div>
+</div>
+
+
+     <div class="slider-container2 fade-in-up" id="service-purpose">
+      <div class="container">
+              <div>
+        <p style="font-weight: 600;
+font-size: clamp(1.5rem, 3vw, 2rem);">服务宗旨</p>
+        <p style="font-weight: 400;
+font-size: clamp(0.8rem, 1.5vw, 1rem);margin-bottom: 40px;">专业、高效、及时，始终如一</p>
+      </div>
+            <div class="slider-container2-grid">
+                    {pboot:slide num=100 gid=3}
+              <div class="slider-container2-item">
+                <img src="[slide:src]" width="36" height="36" alt="">
+                <p style="font-weight: 600;
+font-size: clamp(1rem, 2vw, 1.25rem);
+color: #91E9E0;margin: 14px 0 6px;">[slide:title]</p>
+                <p style="font-weight: 400;
+font-size: clamp(0.75rem, 1.2vw, 0.875rem);text-align: left;
+color: #FFFFFF;">[slide:subtitle]</p>
+              </div>
+      
+      {/pboot:slide}
+              </div>
+      </div>
+              </div>
+
+
+
+     <div class="slider-container3 fade-in-scale" id="company-honors">
+      <div class="container">
+              <div>
+        <p style="font-weight: 600;
+font-size: clamp(1.25rem, 2.5vw, 1.75rem);">公司荣誉</p>
+        <p style="font-weight: 400;
+font-size: clamp(0.7rem, 1.2vw, 0.85rem);margin-bottom: 40px;">实力见证，信任之选</p>
+      </div>
+            <div class="slider-container3-grid">
+      {pboot:slide num=100 gid=2}
+                        <div class="slider-item">
+                    <a href="[slide:link]" style="width: 100%;" target="_blank">
+                      <img
+                        src="[slide:src]"
+                        class="slider-item-img"
+                      />
+                    </a>
+                    <div class="slider-item-title">[slide:title]</div>
+                </div>
+      
+      {/pboot:slide}
+      </div>
+      </div>
+    </div>
+
+
+         <div class="slider-container3 slider-container4 fade-in-rotate" id="team-showcase">
+          <div class="container">
+                  <div>
+        <p style="font-weight: 600;
+font-size: clamp(1.25rem, 2.5vw, 1.75rem);">团队风采</p>
+        <p style="font-weight: 400;
+font-size: clamp(0.7rem, 1.2vw, 0.85rem);margin-bottom: 40px;">以专业成就客户，以协同定义未来</p>
+      </div>
+            <div class="slider-container4-grid">
+      {pboot:slide num=100 gid=10}
+                        <div class="slider-item">
+                    <a href="[slide:link]" style="width: 100%;height: 100%;" target="_blank">
+                      <img
+                        src="[slide:src]"
+                        class="slider-item-img"
+                      />
+                    </a>
+                </div>
+      
+      {/pboot:slide}
+      </div>
+          </div>
+    </div>
+
+
+<style>
+  /* 动画类 */
+  .fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .fade-in-scale {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .fade-in-rotate {
+    opacity: 0;
+    transform: rotateY(-10deg) scale(0.9);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .visible {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .slider-container1{
+
+  }
+  .slider-container1-item-left{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-weight: 600;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: #21A29D;
+    padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1rem, 2vw, 1.75rem);
+    background: #FAFAFA;
+    /* max-width: 580px; */
+    max-width: 1052px;
+    max-height: clamp(200px, 40vw, 288px);
+  }
+  .slider-container1-item-right{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0;
+  }
+  
+  /* 公司介绍图片动画 */
+  .slider-item-img1{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .slider-container1-item-right:hover .slider-item-img1{
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+.slider-container2{
+    width: 100%;
+    height: fit-content;
+    color: #fff;
+    padding: clamp(3rem, 6vw, 7.5rem) clamp(1.5rem, 3vw, 6.75rem);
+    text-align: center;
+    /* background: #E4EDED; */
+    background-image: url({pboot:sitepath}/static/upload/image/bg11.png);
+    background-repeat: round;
+}
+.slider-container2-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: clamp(1.5rem, 3vw, 2rem);
+  grid-auto-rows: 1fr;
+}
+
+.slider-container2-item{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: rgba(0,0,0,0.62);
+  border-radius: 7px;
+  height: 100%;
+  padding: clamp(1rem, 2vw, 1.25rem);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 服务宗旨卡片悬停动画 */
+.slider-container2-item::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(145, 233, 224, 0.1), rgba(33, 162, 157, 0.2));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.slider-container2-item:hover{
+  transform: translateY(-5px);
+  background: rgba(0,0,0,0.7);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.slider-container2-item:hover::before{
+  opacity: 1;
+}
+
+.slider-container2-item:hover img{
+  transform: scale(1.1) rotate(5deg);
+}
+
+.slider-container2-item img{
+  transition: transform 0.3s ease;
+}
+
+  .slider-container3{
+    width: 100%;
+    height: fit-content;
+    background: #E4EDED;
+    color: #21A29D;
+    padding: clamp(3rem, 6vw, 7.5rem) 0;
+    text-align: center;
+  }
+  .slider-container4{
+    color: #333333;
+    background: #fff;
+  }
+  .slider-container3-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: clamp(1.5rem, 3vw, 2rem);
+    grid-auto-rows: 1fr;
+  }
+  .slider-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* 公司荣誉卡片悬停动画 */
+  .slider-item::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(33, 162, 157, 0.05), rgba(33, 162, 157, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .slider-item:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+  
+  .slider-item:hover::before{
+    opacity: 1;
+  }
+  
+  .slider-item:hover .slider-item-img{
+    transform: scale(1.1);
+  }
+  
+  .slider-item:hover .slider-item-title{
+    background: #21A29D;
+    transform: translateY(5px);
+    color: #FFFFFF;
+  }
+  
+  .slider-item-img{
+    width: 100%;
+    transition: transform 0.3s ease;
+    height: 100%;
+    object-fit: cover;
+  }
+  .slider-item-title{
+    height: clamp(40px, 8vw, 56px);
+    line-height: clamp(40px, 8vw, 56px);
+    background: #fff;
+    width: 100%;
+    font-weight: 600;
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    color: #333333;
+    border-radius: 0 0 7px 7px;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .slider-container4-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0px;
+    grid-auto-rows: 1fr;
+  }
+  
+  /* 团队风采图片悬停动画 */
+  .slider-container4-grid .slider-item:hover .slider-item-img{
+    transform: scale(1.1) rotate(1deg);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  /* 平板设备适配 */
+  @media screen and (max-width: 1024px) {
+    .slider-container1{
+      flex-direction: column;
+      text-align: center;
+    }
+    .slider-container1-item-left{
+      max-width: 100%;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .slider-container1-item-right{
+      width: 100%;
+    }
+    .slider-container2-grid, .slider-container3-grid{
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .slider-container4-grid{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* 移动设备适配 */
+  @media screen and (max-width: 768px) {
+    .slider-container1-item-left{
+      max-width: 100%;
+    }
+    .slider-item-img1{
+      width: 100%;
+      height: auto;
+    }
+    .slider-container2, .slider-container3{
+      padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 2vw, 1.5rem);
+      height: fit-content;
+    }
+    .slider-container2-grid, .slider-container3-grid{
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .slider-container4-grid{
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  /* 小屏幕手机适配 */
+  @media screen and (max-width: 480px) {
+    .slider-container1-item-left{
+      padding: clamp(1rem, 3vw, 1.5rem);
+    }
+    .slider-container2, .slider-container3{
+      padding: clamp(1.5rem, 4vw, 2rem) clamp(0.8rem, 1.5vw, 1rem);
+    }
+  }
+</style>
+</style>
+
+<script>
+// 获取 URL 参数
+function getUrlParams() {
+  const params = {};
+  const queryString = window.location.search.substring(1);
+  const pairs = queryString.split('&');
+  
+  for (let i = 0; i < pairs.length; i++) {
+    const pair = pairs[i].split('=');
+    if (pair.length === 2) {
+      params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+    }
+  }
+  
+  return params;
+}
+
+// 防抖函数
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// 滚动触发动画
+const animateOnScroll = function() {
+    const elements = document.querySelectorAll('.fade-in-left, .fade-in-up, .fade-in-scale, .fade-in-rotate');
+    elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementBottom = element.getBoundingClientRect().bottom;
+
+        // 当元素进入视口时触发动画
+        if (elementTop < window.innerHeight - 100 && elementBottom > 0) {
+            // 检查元素是否已添加可见类
+            if (!element.classList.contains('visible')) {
+                element.classList.add('visible');
+            }
+        }
+    });
+};
+
+// 监听滚动事件，触发动画
+window.addEventListener('scroll', debounce(animateOnScroll, 100));
+// 页面加载完成后，检查初始可见元素
+document.addEventListener('DOMContentLoaded', function() {
+  animateOnScroll();
+  
+  // 监听 URL 参数
+    const params = getUrlParams();
+    // 检查是否有跳转到特定部分的参数，例如 ?office=工作机会
+    if (params.office) {
+      const targetId = params.office === '公司简介' ? 'company-introduction' : params.office === '服务宗旨' ? 'service-purpose' : params.office === '团队风采' ? 'team-showcase' : params.office === '公司荣誉' ? 'company-honors' : null;
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        // 平滑滚动到目标元素
+           const offsetTop = targetElement.offsetTop - 57;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+      }
+    }
+});
+</script>
+
+{include file=comm/foot.html}

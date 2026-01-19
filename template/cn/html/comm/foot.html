@@ -1,0 +1,212 @@
+
+<div class="footer pt-5 border-top text-secondary bg-light" style="background: #1D2521 !important;">
+	<div class="container">
+    	<div class="row pb-5 zz">
+            <div class="col-6 col-md-4">
+            	<!-- <h5>{pboot:companyname}</h5> -->
+               <img src="{pboot:sitelogo}" width="160" height="40" alt="">
+                <ul class="lh-2" style="color: #fff !important;font-weight: 400;
+font-size: 14px;margin-top: 6px;">
+                	<li>以高效、快捷、准确、及时的高质量服务立足物流行</li>
+                    <li>业强化内部管理，不断提升业务能力，专业化服务性 </li>
+                    <li>行业进军。</li>
+                </ul>
+            </div>
+            <div class="col-6 col-md-3">
+            	<div class="mt-4 d-block d-md-none"></div>
+                
+            	<h5 style="color: #fff !important;font-weight: 600;
+font-size: 14px;">快速链接</h5>
+                <ul class="lh-2" style="font-weight: 400;
+font-size: 14px;color: #fff !important;margin-top: 28px;">
+                    <li><a href="{pboot:sitepath}/" style="color: #fff !important; text-decoration: none;">首页 </a></li>
+                    <li><a href="{pboot:sitepath}/coreBusiness/" style="color: #fff !important; text-decoration: none;">核心业务</a></li>
+                    <li><a href="{pboot:sitepath}/areaAdvantage/" style="color: #fff !important; text-decoration: none;">航线优势</a></li>
+                    <li><a href="{pboot:sitepath}/newsInformation/" style="color: #fff !important; text-decoration: none;">新闻资讯</a></li>
+                </ul>
+            </div>
+                        <div class="col-6 col-md-3">
+            	<div class="mt-4 d-block d-md-none"></div>
+                
+            	<h5 style="color: #fff !important;font-weight: 600;
+font-size: 14px;">核心服务</h5>
+                <ul class="lh-2" style="font-weight: 400;
+font-size: 14px;color: #fff !important;margin-top: 28px;">
+                    <li><a href="{pboot:sitepath}/coreBusiness/#maritime" style="color: #fff !important; text-decoration: none;">全球海运业务 </a></li>
+                    <li><a href="{pboot:sitepath}/coreBusiness/#multimodal" style="color: #fff !important; text-decoration: none;">多式联运业务</a></li>
+                    <li><a href="{pboot:sitepath}/coreBusiness/#crossborder" style="color: #fff !important; text-decoration: none;">跨境电商物流</a></li>
+                </ul>
+            </div>
+                                    <div class="col-6 col-md-5">
+            	<div class="mt-4 d-block d-md-none"></div>
+                
+            	<h5 style="color: #fff !important;font-weight: 600;
+font-size: 14px;">联系方式</h5>
+                <ul class="lh-2" style="font-weight: 400;
+font-size: 14px;color: #fff !important;margin-top: 28px;">
+                    <li><img src="{pboot:sitetplpath}/images/address.png" width="18" height="18" style="margin-right: 12px;" alt="">{pboot:companyname} </li>
+                    <li style="margin: 10px 0;"><img src="{pboot:sitetplpath}/images/phone.png" width="18" height="18" style="margin-right: 12px;" alt="">{pboot:companyphone}<span style="margin-left: 10px;">{pboot:companyfax}</span></li>
+                    <li><img src="{pboot:sitetplpath}/images/email.png" width="18" height="18" style="margin-right: 12px;" alt="">{pboot:companyemail}</li>
+                </ul>
+            </div>
+        </div>
+	</div>
+    <div class="copyright border-top lh-3 text-center" style="border-top: 1px solid rgba(255, 255, 255, 0.05) !important;padding: clamp(1rem, 2vw, 2rem) clamp(2rem, 8vw, 6.75rem);">
+        <div class="constants" style="display: flex;align-items: center;justify-content: space-between;font-weight: 400 !important;
+        font-size: clamp(0.7rem, 1.5vw, 0.875rem) !important;
+        color: #FFFFFF;">
+          {pboot:sitecopyright}
+          <div style="display: flex;align-items: center;justify-content: space-between;">
+                <div>隐私政策</div>
+          <div style="margin: 0 clamp(1rem, 2vw, 2rem);">服务条款</div>
+          <div>网站地图</div>
+          </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 占位 -->
+<div style="height:49px;" class="d-block d-sm-none"></div>
+
+<!-- 手机底部导航 -->
+<div class="container-fluid bg-info fixed-bottom d-block d-sm-none">
+    <div class="row">
+        <div class="col-4 p-0 text-center border-right">
+            <a href="tel:{pboot:companymobile}" class="text-light d-block pt-3 pb-3"><i class="fa fa-phone" aria-hidden="true"></i> 电话咨询</a>
+        </div>
+        <div class="col-4 p-0 text-center border-right">
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={pboot:companyqq}&site=qq&menu=yes" class="text-light d-block pt-3 pb-3"><i class="fa fa-qq" aria-hidden="true"></i> 在线咨询</a>
+        </div>
+        <div class="col-4 p-0 text-center">
+			{pboot:sort scode=1}
+            <a href="[sort:link]" class="text-light d-block pt-3 pb-3"><i class="fa fa-location-arrow" aria-hidden="true"></i> [sort:name]</a>
+			{/pboot:sort}
+        </div>
+    </div>
+</div>
+
+<style>
+/* 移动端版权信息优化 */
+@media (max-width: 767px) {
+    .copyright .constants {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .copyright .constants > div:last-child {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .copyright .constants > div:last-child div {
+        margin: 0 !important;
+    }
+}
+</style>
+
+<!-- 在线客服 -->
+<!-- <div class="online d-none d-md-block">
+	<dl>
+		<dt style="width:150px;">
+        	<h3><i class="fa fa-commenting-o"></i>在线咨询<span class="remove"><i class="fa fa-remove"></i></span></h3>
+            <p>
+            	<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={pboot:companyqq}&site=qq&menu=yes">
+                	<img border="0" src="{pboot:sitetplpath}/images/qq.jpg" alt="点击这里给我发消息" title="点击这里给我发消息"/>
+               		 售前咨询专员
+                </a>
+            </p>
+             <p>
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={pboot:companyqq}&site=qq&menu=yes">
+                	<img border="0" src="{pboot:sitetplpath}/images/qq.jpg" alt="点击这里给我发消息" title="点击这里给我发消息"/>
+               		 售后服务专员
+                </a>
+            </p>
+        </dt>
+		<dd><i class="fa fa-commenting-o"></i></dd>
+		<dd>在线咨询</dd>
+	</dl>
+    
+	<dl>
+		<dt style="width:300px;">
+        	<h3><i class="fa fa-volume-control-phone"></i>免费通话<span class="remove"><i class="fa fa-remove"></i></span></h3>
+            <p>24小时免费咨询</p>
+            <p>请输入您的联系电话，座机请加区号</p>
+            <form  onsubmit="return subform(this);">
+            	<p><input type="text" name="tel" id="tel" autocomplete="off"  placeholder="请输入您的电话号码" required maxlength="30"></p>
+                <p><button type="submit">免费通话</button></p>
+            </form>
+        </dt>
+		<dd><i class="fa fa-volume-control-phone" aria-hidden="true"></i></dd>
+		<dd>免费通话</dd>
+	</dl>
+    
+    <dl>
+		<dt style="width:200px;">
+        	<h3><i class="fa fa-weixin" aria-hidden="true"></i>微信扫一扫<span class="remove"><i class="fa fa-remove"></i></span></h3>
+           	<p><img src="{pboot:companyweixin} " width="100%"></p>
+        </dt>
+		<dd><i class="fa fa-weixin" aria-hidden="true"></i></dd>
+		<dd>微信联系</dd>
+	</dl>
+    
+	<dl class="scroll-top">
+		<dd><i class="fa fa-chevron-up"></i></dd>
+		<dd>返回顶部</dd>
+	</dl>
+</div> -->
+
+<script src="{pboot:sitetplpath}/js/popper.min.js"></script>
+<script src="{pboot:sitetplpath}/bootstrap/js/bootstrap.min.js"></script>
+<script src="{pboot:sitetplpath}/js/wow.min.js"></script>
+<script src="{pboot:sitetplpath}/js/aoyun.js?v=v1.2.2"></script>
+<script>
+//ajax提交表单
+function subform(obj){
+  var url='{pboot:form fcode=2}';
+  var tel=$(obj).find("#tel").val();
+  
+  var reg = /^(1|0)[\d\-]+$/;   
+  if (!reg.test(tel)) {
+	  alert('电话号码错误！');
+	  return false;
+  }
+  
+  $.ajax({
+    type: 'POST',
+    url: url,
+    dataType: 'json',
+    data: {
+    	tel: tel
+    },
+    success: function (response, status) {
+      if(response.code){
+		 alert("您的来电已收到，我们会尽快联系您！");
+		 $(obj)[0].reset(); 
+      }else{
+    	 alert(response.data);
+      }
+    },
+    error:function(xhr,status,error){
+      alert('返回数据异常！');
+    }
+  });
+  return false;
+}
+</script>
+<style>
+
+  .zz{
+    flex-wrap: nowrap !important;
+  }
+  @media screen and (max-width: 768px) {
+    .zz{
+      flex-wrap: wrap !important;
+    }
+  }
+</style>
+
+{pboot:sitestatistical}
+
+</body>
+</html>

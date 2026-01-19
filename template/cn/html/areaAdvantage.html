@@ -1,0 +1,128 @@
+{include file=comm/head.html}
+
+{include file=comm/top2.html}
+
+
+<div class="area-advantage">
+        {pboot:slide num=100 gid=6}
+                        <div class="area-advantage-item">
+                          <div class="area-advantage-title">[slide:title]</div>
+                    <a href="[slide:link]" style="width: 100%;height: 100%;" target="_blank">
+                      <img
+                        src="[slide:src]"
+                        class="area-advantage-img"
+                      />
+                    </a>
+
+                </div>
+      {/pboot:slide}
+</div>
+
+<style>
+  .area-advantage{}
+
+  .area-advantage-title{
+    font-weight: 600;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    color: #333333;
+    margin-bottom: clamp(2rem, 5vw, 2.8rem);
+    text-align: center;
+  }
+
+  .area-advantage-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(3rem, 8vw, 4.5rem) clamp(5rem, 15vw, 6.8rem);
+    height: fit-content;
+    background: #FaFaFa;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .area-advantage-item:nth-child(2n){
+    background: #fff;
+  }
+
+  .area-advantage-item.visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .area-advantage-img{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* 平板端优化 */
+  @media screen and (max-width: 768px) {
+    .area-advantage-item{
+      padding: clamp(2rem, 6vw, 2.5rem) clamp(3rem, 10vw, 3.5rem);
+    }
+  }
+  
+  /* 小屏幕移动端优化 */
+  @media screen and (max-width: 576px) {
+    .area-advantage-item{
+      padding: clamp(1.5rem, 4vw, 2rem) clamp(1.5rem, 4vw, 2rem);
+    }
+    .area-advantage-title{
+      margin-bottom: clamp(1.5rem, 4vw, 2rem);
+    }
+  }
+  
+  /* 超大屏幕优化 */
+  @media screen and (min-width: 1200px) {
+    .area-advantage-item{
+      padding: 72px 108px;
+    }
+    .area-advantage-title{
+      font-size: 20px;
+      margin-bottom: 45px;
+    }
+  }
+</style>
+
+<script>
+// 防抖函数
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// 滚动触发动画
+const animateOnScroll = function() {
+    const elements = document.querySelectorAll('.area-advantage-item');
+    elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementBottom = element.getBoundingClientRect().bottom;
+
+        // 当元素进入视口时触发动画
+        if (elementTop < window.innerHeight - 100 && elementBottom > 0) {
+            // 检查元素是否已添加可见类
+            if (!element.classList.contains('visible')) {
+                element.classList.add('visible');
+            }
+        }
+    });
+};
+
+// 监听滚动事件，触发动画
+window.addEventListener('scroll', debounce(animateOnScroll, 100));
+// 页面加载完成后，检查初始可见元素
+document.addEventListener('DOMContentLoaded', animateOnScroll);
+</script>
+
+{include file=comm/foot.html}

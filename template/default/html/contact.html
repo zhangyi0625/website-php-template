@@ -1,0 +1,136 @@
+{include file=comm/head.html}
+
+{include file=comm/top.html}
+
+
+<div id="vue-app-1" class="container">
+      <!-- <el-container>
+        <el-main> -->
+          <div class="container pages" style="min-height: fit-content;">
+            {include file=comm/position.html}
+            <h2 class="text-center my-4 fs-sm-28 fs-24">{content:title}</h2>
+            <div class="content" style="overflow-wrap: break-word">
+              {content:content}
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <div id="container"></div>
+          </div>
+          <!-- 留言表单 -->
+    <div class="row">
+    	<!-- <div class="col-lg-3"></div> -->
+    	<div class="col-24 col-lg-12">
+        	<form class="my-4"  onsubmit="return submsg(this);">
+            <div style="display: grid;
+  grid-template-columns: repeat(2, 1fr);gap: 30px;">
+                  <div class="form-group">
+                    <label for="contacts">联系人<span style="color: red;">*</span></label>
+                    <div>
+                        <input type="text" name="contacts" required id="contacts" class="form-control" placeholder="请输入联系人">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mobile">手机<span style="color: red;">*</span></label>
+                    <div>
+                        <input type="text" name="mobile" required id="mobile" class="form-control" placeholder="请输入联系人手机">
+                    </div>
+                </div>
+  </div>
+            
+   <div class="form-group">
+                    <label for="content" >主题<span style="color: red;">*</span></label>
+                    <div>
+                        <input type="text" name="topic" required id="subject" class="form-control" placeholder="请输入主题">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="content" >内容<span style="color: red;">*</span></label>
+                    <div>
+                        <textarea name="content" id="content" class="form-control textarea" placeholder="请输入留言内容"></textarea>
+                    </div>
+                </div>
+                
+                {pboot:if({pboot:msgcodestatus})}
+                <div class="form-group">
+                    <label for="checkcode">验证码</label>
+                    <div class="row">
+                        <div class="col-10 col-md-3">
+                            <input type="text" name="checkcode" required id="checkcode" class="form-control" placeholder="请输入验证码">
+                        </div>
+                        <div class="col-2">
+                            <img title="点击刷新" class="codeimg" style="height:39px;" src="{pboot:checkcode}" onclick="this.src='{pboot:checkcode}?'+Math.round(Math.random()*10);" />
+                        </div>
+                    </div>
+                </div>
+                {/pboot:if}
+                
+                <div class="form-group">
+                   <button type="submit" class="btn btn-info mb-2">提交留言</button>
+                </div>
+            </form>
+        </div>
+        <!-- <div class="col-lg-3"></div> -->
+    </div>
+        <!-- </el-main>
+      </el-container> -->
+    </div>
+
+{include file=comm/foot.html}
+
+<script>
+//ajax提交留言
+function submsg(obj){
+  var url='{pboot:msgaction}';
+  var contacts=$(obj).find("#contacts").val();
+  var mobile=$(obj).find("#mobile").val();
+  var content=$(obj).find("#content").val();
+  var checkcode=$(obj).find("#checkcode").val();
+  var topic=$(obj).find("#subject").val();
+  $.ajax({
+    type: 'POST',
+    url: url,
+    dataType: 'json',
+    data: {
+    	contacts: contacts,
+    	mobile: mobile,
+    	content: content,
+    	checkcode: checkcode,
+      topic:topic
+    },
+    success: function (response, status) {
+      if(response.code){
+		 alert("谢谢您的反馈，我们会尽快联系您！");
+		 $(obj)[0].reset(); 
+      }else{ 
+    	 if(response.tourl!=""){
+    		 if(confirm(response.data+'是否立即跳转登录？')){
+    			 location.href=response.tourl; 
+   	   	     }
+    	 }
+    	 $('.codeimg').click();//更新验证码
+      }
+    },
+    error:function(xhr,status,error){
+      alert('返回数据异常！');
+    }
+  });
+  return false;
+}
+</script>
+
+<style>
+  .form-control {
+    height: calc(2.2em + .75rem + 2px) !important;
+  }
+  .textarea{
+    height: calc(4.5em + .75rem + 2px) !important;
+  }
+</style>

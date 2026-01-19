@@ -1,0 +1,30 @@
+{include file=comm/head.html}
+
+{include file=comm/top.html}
+
+
+<div id="vue-app-1" class="container">
+      <!-- <el-container>
+        <el-main> -->
+          <div class="container pages">
+            {include file=comm/position.html}
+            <h2 class="text-center my-4 fs-sm-28 fs-24">{content:title}</h2>
+            <div class="content" style="overflow-wrap: break-word">
+              {content:content}
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <div id="container"></div>
+          </div>
+        <!-- </el-main>
+      </el-container> -->
+    </div>
+
+{include file=comm/foot.html}

@@ -1,0 +1,16 @@
+<!-- 头部大屏 -->
+<div class="jumbotron jumbotron-fluid mb-2" 
+style="{pboot:if('{sort:pic}')}
+background:#e9ecef 
+url({sort:pic})
+{else}background:#e9ecef url({pboot:sitepath}/static/upload/image/bg3.png)
+{/pboot:if};background-size:cover;no-repeat;height: 352px;background-repeat: round;">
+  <div class="container text-center" style="color: #fff;">
+    <h1 class="fs-18 fs-sm-26 wow fadeInDown" style="font-weight: 500;
+font-size: 60px;
+color: #FFFFFF;margin-top: 40px;">{sort:name}</h1>
+    <p class="fs-14  fs-sm-18 wow fadeInDown" style="font-weight: 400;
+font-size: 24px;
+color: #FFFFFF;">{sort:subname}</p>
+  </div>
+</div>

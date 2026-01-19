@@ -1,0 +1,389 @@
+{include file=comm/head.html}
+
+{include file=comm/top4.html}
+
+<div class="join-us1" id="join-us1">
+
+<div class="container">
+  <p style="font-weight: 600;
+font-size: clamp(1.8rem, 4.5vw, 2.3125rem);
+color: #333333;">为什么选择我们？</p>
+<p style="font-weight: 400;
+font-size: clamp(0.9rem, 2.2vw, 1.25rem);
+color: #333333;margin-top: 5px;">我们为您提供的不仅仅是一份工作，更是一个实现梦想的舞台</p>
+
+            <div class="join-us1-grid">
+      {pboot:slide num=100 gid=4}
+                        <div class="join-us1-item">
+                    <a href="[slide:link]" style="width: 100%;" target="_blank">
+                      <img
+                        src="[slide:src]"
+                        class="join-us1-item-img"
+                        width="48"
+                        height="48"
+                      />
+                    </a>
+                    <div class="join-us1-item-title">[slide:title]</div>
+                    <div class="join-us1-item-subtitle">[slide:subtitle]</div>
+                </div>
+      {/pboot:slide}
+      </div>
+</div>
+      </div>
+      <div class="join-us2" id="join-us2">
+        <div class="container">
+          <p style="font-weight: 600;
+font-size: clamp(1.8rem, 4.5vw, 2.3125rem);
+color: #333333;">公司环境</p>
+<p style="font-weight: 400;
+font-size: clamp(0.9rem, 2.2vw, 1.25rem);
+color: #333333;margin-top: 5px;">在这里，工作与价值共同生长</p>
+            <div class="join-us2-grid">
+      {pboot:slide num=100 gid=5}
+                        <div class="join-us2-item">
+                    <a href="[slide:link]" style="width: 100%;height: 100%;" target="_blank">
+                      <img
+                        src="[slide:src]"
+                        class="join-us2-item-img"
+                      />
+                    </a>
+                </div>
+      {/pboot:slide}
+      </div>
+        </div>
+      </div>
+
+      <div class="join-us3" id="job-opportunities">
+        <div class="container">
+                  <p style="font-weight: 600;
+font-size: clamp(1.8rem, 4.5vw, 2.3125rem);
+">工作机会</p>
+<p style="font-weight: 400;
+font-size: clamp(0.9rem, 2.2vw, 1.25rem);
+margin-top: 5px;">寻找志同道合的你</p>
+<div class="join-us3-grid">
+        {pboot:list num=12 order=date}
+        <div class="join-us3-item">
+          <div class="text-left">
+            <div style="font-weight: 600;
+font-size: clamp(0.7rem, 1.6vw, 0.875rem);
+color: #21A29D;">职位：[list:title]</div>
+            <div class="text-left">
+              <p style="font-weight: 600;
+font-size: clamp(0.4rem, 1vw, 0.5rem);
+color: #21A29D;">
+                [list:content]
+              </p>
+            </div>
+          </div>
+        </div>
+        {/pboot:list}
+</div>
+        </div>
+              </div>
+
+              <div class="join-us4" id="contact-us">
+                <div class="container">
+                                  <div class="join-us4-item">
+                  <img class="join-us4-item-img" width="350" height="236" src="{pboot:sitetplpath}/images/address1.png" alt="" />
+                  <div style="display: flex;align-items: flex-start;flex-direction: column;">
+                                      <p style="font-weight: 600;
+font-size: clamp(1.8rem, 4.5vw, 2.3125rem);
+color: #333333;">联系我们</p>
+<div style="font-size: clamp(0.9rem, 2.2vw, 1.25rem);">
+                      <div style="margin-top: 18px;"><img src="{pboot:sitetplpath}/images/address.png" width="18" height="18" style="margin-right: 12px;" alt="">{pboot:companyaddress} </div>
+                    <div style="margin-top: 18px;"><img src="{pboot:sitetplpath}/images/phone.png" width="18" height="18" style="margin-right: 12px;" alt="">{pboot:companyphone}<span style="margin-left: 10px;">{pboot:companyfax}</span></div>
+                    <div style="margin-top: 18px;"><img src="{pboot:sitetplpath}/images/email.png" width="18" height="18" style="margin-right: 12px;" alt="">{pboot:companyemail}</div>
+</div>
+
+                  </div>
+                </div>
+                </div>
+              </div>
+<style>
+  .join-us1{
+    width: 100%;
+    height: fit-content;
+    background: #FAFAFA;
+    padding: clamp(2rem, 6vw, 4.5rem) 0;
+    text-align: center;
+  }
+  .join-us1-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: clamp(1.5rem, 3vw, 2rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+  .join-us1-item{
+    background: #FFFFFF;
+    border-radius: 7px;
+    padding: clamp(1rem, 2vw, 1.25rem) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .join-us1-item::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(33, 162, 157, 0.05), rgba(33, 162, 157, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .join-us1-item:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+  .join-us1-item:hover::before{
+    opacity: 1;
+  }
+  .join-us1-item:hover .join-us1-item-title{
+    color: #21A29D;
+  }
+  .join-us1-item:hover .join-us1-item-img{
+    transform: scale(1.1);
+  }
+  .join-us1-item-img{
+    /* width: clamp(2rem, 4vw, 2.25rem);
+    height: clamp(2rem, 4vw, 2.25rem); */
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  .join-us1-item-title{
+    font-weight: 600;
+    font-size: clamp(0.9rem, 2.2vw, 1.25rem);
+    color: #333333;
+    margin: clamp(1rem, 2vw, 1.25rem) 0 clamp(0.3rem, 1vw, 0.5rem);
+    transition: color 0.3s ease;
+  }
+  .join-us1-item-subtitle{
+    font-weight: 400;
+    font-size: clamp(0.7rem, 1.6vw, 0.875rem);
+    color: #333333;
+    transition: color 0.3s ease;
+  }
+  .join-us1-item:hover .join-us1-item-subtitle{
+    color: #666666;
+  }
+  
+  .join-us2{
+    width: 100%;
+    height: fit-content;
+    background: #FFFFFF;
+    padding: clamp(2rem, 6vw, 4.5rem) 0;
+    text-align: center;
+  }
+  .join-us2-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: clamp(1.5rem, 3vw, 2rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+  .join-us2-item{
+    height: clamp(15rem, 30vw, 17.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 7px;
+    overflow: hidden;
+  }
+  .join-us2-item:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+  .join-us2-item:hover .join-us2-item-img{
+    transform: scale(1.05);
+  }
+  .join-us2-item-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .join-us3{
+    width: 100%;
+    height: fit-content;
+    padding: clamp(2rem, 6vw, 4.5rem) 0;
+    text-align: center;
+    background: #E4EDED;
+    color: #21A29D !important;
+  }
+  .join-us3-grid{
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+  .join-us3-item{
+    background: #FFFFFF;
+    padding: clamp(0.8rem, 2vw, 1rem);
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    border-radius: 7px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .join-us3-item::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(33, 162, 157, 0.05), rgba(33, 162, 157, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .join-us3-item:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+  .join-us3-item:hover::before{
+    opacity: 1;
+  }
+  
+  .join-us4{
+    width: 100%;
+    height: fit-content;
+    background: #FFFFFF;
+    padding: clamp(2rem, 6vw, 4.5rem) 0;
+  }
+  .join-us4-item{
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  .join-us4-item-img{
+    width: clamp(20rem, 40vw, 37.75rem);
+    height: clamp(12rem, 20vw, 18.9rem);
+    object-fit: cover;
+    margin-right: clamp(2rem, 4vw, 3.4rem);
+    transition: transform 0.3s ease;
+  }
+  .join-us4:hover .join-us4-item-img{
+    transform: scale(1.05);
+  }
+  
+  /* 平板设备适配 */
+  @media screen and (max-width: 1024px) {
+    .join-us1-grid{
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .join-us2-grid{
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .join-us4-item{
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .join-us4-item-img{
+      width: 100%;
+      height: clamp(15rem, 25vw, 20rem);
+      margin-right: 0;
+      margin-bottom: clamp(1rem, 2vw, 2rem);
+    }
+  }
+  
+  /* 移动设备适配 */
+  @media screen and (max-width: 768px) {
+    .join-us1{
+      padding: clamp(1.5rem, 5vw, 2.5rem) clamp(1rem, 2vw, 1.5rem);
+    }
+    .join-us1-grid{
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .join-us2{
+      padding: clamp(1.5rem, 5vw, 2.5rem) clamp(1rem, 2vw, 1.5rem);
+    }
+    .join-us2-grid{
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .join-us2-item{
+      height: clamp(10rem, 25vw, 15rem);
+    }
+    .join-us3{
+      padding: clamp(1.5rem, 5vw, 2.5rem) clamp(1rem, 2vw, 1.5rem);
+    }
+    .join-us4{
+      padding: clamp(1.5rem, 5vw, 2.5rem) clamp(1rem, 2vw, 1.5rem);
+    }
+    .join-us4-item-img{
+      width: 100%;
+      height: clamp(8rem, 20vw, 12rem);
+    }
+  }
+  
+  /* 小屏幕手机适配 */
+  @media screen and (max-width: 480px) {
+    .join-us1{
+      padding: clamp(1rem, 4vw, 1.5rem) clamp(0.8rem, 1.5vw, 1rem);
+    }
+    .join-us2{
+      padding: clamp(1rem, 4vw, 1.5rem) clamp(0.8rem, 1.5vw, 1rem);
+    }
+    .join-us3{
+      padding: clamp(1rem, 4vw, 1.5rem) clamp(0.8rem, 1.5vw, 1rem);
+    }
+    .join-us4{
+      padding: clamp(1rem, 4vw, 1.5rem) clamp(0.8rem, 1.5vw, 1rem);
+    }
+  }
+</style>
+
+<script>
+  // 获取 URL 参数
+  function getUrlParams() {
+    const params = {};
+    const queryString = window.location.search.substring(1);
+    const pairs = queryString.split('&');
+    
+    for (let i = 0; i < pairs.length; i++) {
+      const pair = pairs[i].split('=');
+      if (pair.length === 2) {
+        params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+      }
+    }
+    
+    return params;
+  }
+
+  // 监听 URL 参数并执行相应操作
+  document.addEventListener('DOMContentLoaded', function() {
+    const params = getUrlParams();
+    // 检查是否有跳转到特定部分的参数，例如 ?office=工作机会
+    if (params.office) {
+      let targetId = '';
+      if (params.office === '工作机会') {
+        targetId = 'job-opportunities';
+      } else if (params.office === '公司环境') {
+        targetId = 'join-us2';
+      } else if (params.office === '联系我们') {
+        targetId = 'contact-us';
+      }
+      
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        // 平滑滚动到目标元素
+           const offsetTop = targetElement.offsetTop - 57;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+      }
+    }
+    
+    // 可以添加更多参数监听逻辑
+    // 例如：if (params.paramName) { /* 执行相应操作 */ }
+  });
+</script>
+
+{include file=comm/foot.html}

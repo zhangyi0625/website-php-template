@@ -1,0 +1,316 @@
+{include file=comm/head.html}
+
+{include file=comm/top1.html}
+
+<div class="core-business">
+  <div class="container">
+      {pboot:slide num=100 gid=7}
+                        <div class="core-business-item wow {slide:i % 2 == 1 ? 'animate-left' : 'animate-right'}" data-wow-duration="1s" data-wow-delay="{slide:i * 200}ms">
+                    <a href="[slide:link]" style="width: 100%;height: 100%;" target="_blank">
+                      <img
+                        src="[slide:src]"
+                        class="core-business-item-img wow {slide:i % 2 == 1 ? 'zoom-in' : 'zoom-in-reverse'}"
+                        data-wow-duration="0.8s"
+                        data-wow-delay="{slide:i * 200 + 200}ms"
+                        style="height: 100%;"
+                      />
+                    </a>
+                    <div class="core-business-item-content">
+                      <p class="core-business-item-content-title wow fade-in-up" data-wow-duration="0.6s" data-wow-delay="{slide:i * 200 + 400}ms">[slide:title]</p>
+                      <p class="core-business-item-content-subtitle wow fade-in-up" data-wow-duration="0.6s" data-wow-delay="{slide:i * 200 + 600}ms">[slide:subtitle]</p>
+                      <div class="core-business-item-tags">
+                        {pboot:if([slide:i] == 1)}
+                          <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 800}ms">0时差AI服务</span>
+                          <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 900}ms">中国8大口岸直航</span>
+                          <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 1000}ms">东南亚双清专线</span>
+                          <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 1100}ms">船东直采资源</span>
+                          {/pboot:if}
+                        {pboot:if([slide:i] == 2)}
+                          <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 800}ms">亚欧多式联运专线</span>
+                          <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 900}ms">俄罗斯合规清关</span>
+                          <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 1000}ms">莫斯科商务支持</span>
+                          <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 1100}ms">仓储与金融代理</span>
+                          {/pboot:if}
+                        {pboot:if([slide:i] == 3)}
+                          <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 800}ms">专业清关与风控</span>
+                          <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 900}ms">本土化卡车资源</span>
+                          <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 1000}ms">旺季港口快速响应</span>
+                          <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 1100}ms">全程综合配套服务</span>
+                          {/pboot:if}
+                      </div>
+                    </div>
+                </div>
+      {/pboot:slide}
+  </div>
+      </div>
+
+<style>
+.core-business{
+
+}
+
+.core-business-item{
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: clamp(3rem, 8vw, 4.5rem) 0;
+  height: fit-content;
+  width: 100%;
+  column-gap: clamp(2rem, 5vw, 3.5rem);
+}
+
+.core-business-item:nth-child(2n){
+  flex-direction: row-reverse;
+}
+
+.core-business-item-img{
+  width: 100%;
+  height: clamp(15rem, 30vw, 19rem);
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.core-business-item:hover .core-business-item-img{
+  transform: scale(1.05);
+}
+
+
+.core-business-item-content{
+  max-width: 330px;
+}
+
+.core-business-item-content-title{
+  font-weight: 600;
+  font-size: clamp(1.5rem, 4vw, 2.3125rem);
+  color: #333333;
+  line-height: 1.3;
+}
+
+.core-business-item-content-subtitle{
+  font-weight: 400;
+  font-size: clamp(0.9rem, 2.2vw, 1.25rem);
+  color: #333333;
+  margin: clamp(1.5rem, 4vw, 1.7rem) 0 clamp(0.8rem, 1.6vw, 0.9rem);
+  line-height: 1.6;
+}
+
+.core-business-item-tags{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.25rem);
+  margin-top: clamp(1.5rem, 4vw, 1.7rem);
+  font-size: clamp(0.7rem, 1.5vw, 1rem) !important;
+}
+
+.tag-item{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: clamp(0.7rem, 1.5vw, 1rem);
+  color: #21A29D;
+  font-weight: 400;
+}
+
+.tag-item::before{
+  content: '';
+  display: inline-block;
+  width: clamp(1rem, 2vw, 1rem);
+  height: clamp(1rem, 2vw, 1rem);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Ccircle cx='8' cy='8' r='7' stroke='%2321A29D' stroke-width='1'/%3E%3Cpath d='M5 8L7 10L11 6' stroke='%2321A29D' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 自定义动画效果 */
+@keyframes animateLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) rotate(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+@keyframes animateRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomInReverse {
+  0% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-left {
+  animation-name: animateLeft;
+}
+
+.animate-right {
+  animation-name: animateRight;
+}
+
+.zoom-in {
+  animation-name: zoomIn;
+}
+
+.zoom-in-reverse {
+  animation-name: zoomInReverse;
+}
+
+.fade-in-up {
+  animation-name: fadeInUp;
+}
+
+/* 平板端优化 */
+@media screen and (max-width: 768px) {
+  .core-business-item{
+      padding: clamp(2rem, 6vw, 2.5rem) clamp(1rem, 3vw, 1.5rem);
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+  }
+  .core-business-item-content{
+    margin-top: clamp(1.5rem, 4vw, 1.7rem);
+    max-width: 330px;
+  }
+  .core-business-item:nth-child(2n){
+    flex-direction: column;
+  }
+  .core-business-item-img{
+    width: 100%;
+    height: clamp(12rem, 40vw, 15rem);
+  }
+  .core-business-item-content-title{
+    font-size: clamp(1.3rem, 4.5vw, 1.5rem);
+  }
+  .core-business-item-content-subtitle{
+    font-size: clamp(0.85rem, 2.8vw, 1rem);
+    margin: clamp(1rem, 3vw, 1.5rem) 0 clamp(0.6rem, 1.5vw, 0.8rem);
+  }
+  .core-business-item-tags{
+    grid-template-columns: 1fr;
+    gap: clamp(0.8rem, 2vw, 1rem);
+  }
+  .tag-item{
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+  }
+}
+
+/* 小屏幕移动端优化 */
+@media screen and (max-width: 576px) {
+  .core-business-item{
+      padding: clamp(1.5rem, 4vw, 2rem) clamp(0.8rem, 2vw, 1rem);
+  }
+  .core-business-item-img{
+    width: 100%;
+    height: clamp(10rem, 35vw, 12rem);
+  }
+  .core-business-item-content-title{
+    font-size: clamp(1.2rem, 4vw, 1.3rem);
+  }
+  .core-business-item-content-subtitle{
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+  }
+  .core-business-item-tags{
+    grid-template-columns: 1fr;
+    gap: clamp(0.6rem, 1.5vw, 0.8rem);
+  }
+  .tag-item{
+    font-size: clamp(0.65rem, 1.8vw, 0.75rem);
+  }
+}
+
+/* 超小屏幕移动端优化 */
+@media screen and (max-width: 420px) {
+  .core-business-item{
+      padding: clamp(1rem, 3vw, 1.5rem) clamp(0.5rem, 1.5vw, 0.8rem);
+  }
+  .core-business-item-img{
+    width: 100%;
+    height: clamp(8rem, 30vw, 10rem);
+  }
+  .core-business-item-content-title{
+    font-size: clamp(1.1rem, 3.5vw, 1.2rem);
+  }
+  .core-business-item-content-subtitle{
+    font-size: clamp(0.75rem, 2.2vw, 0.85rem);
+    line-height: 1.5;
+    margin: clamp(0.8rem, 2vw, 1rem) 0 clamp(0.5rem, 1.2vw, 0.6rem);
+  }
+  .core-business-item-tags{
+    gap: clamp(0.5rem, 1.2vw, 0.6rem);
+  }
+  .tag-item{
+    font-size: clamp(0.6rem, 1.6vw, 0.7rem);
+  }
+}
+
+/* 超大屏幕优化 */
+@media screen and (min-width: 1200px) {
+  .core-business-item{
+      /* padding: 72px 108px; */
+  }
+  .core-business-item-img{
+    height: 303px;
+  }
+  .core-business-item-content{
+    max-width: 530px;
+  }
+  .core-business-item-content-title{
+    font-size: 37px;
+  }
+  .core-business-item-content-subtitle{
+    font-size: 20px;
+    margin: 27px 0 14px;
+  }
+  .core-business-item-tags{
+    gap: 20px;
+    margin-top: 27px;
+  }
+  .tag-item{
+    font-size: 16px;
+  }
+}
+
+</style>
+{include file=comm/foot.html}

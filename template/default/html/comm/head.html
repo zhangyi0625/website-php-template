@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<title>{pboot:pagetitle}</title>
+	<meta name="keywords" content="{pboot:pagekeywords}">
+	<meta name="description" content="{pboot:pagedescription}">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,shrink-to-fit=no">
+	<link rel="stylesheet" href="{pboot:sitetplpath}/bootstrap/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="{pboot:sitetplpath}/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{pboot:sitetplpath}/css/aoyun.css?v=v1.3.5" >
+	<link rel="stylesheet" href="{pboot:sitetplpath}/swiper-4.3.5/css/swiper.min.css">
+	<link rel="stylesheet" href="{pboot:sitetplpath}/css/animate.css">
+	<link rel="stylesheet" href="{pboot:sitetplpath}/css/custom.css">
+	<link rel="shortcut icon" href="{pboot:sitepath}/favicon.ico" type="image/x-icon">
+	<script src="{pboot:sitetplpath}/js/jquery-1.12.4.min.js" ></script>
+</head>
+<body>
+  <style>
+/* 导航栏选中状态样式 */
+.navbar-nav > .nav-item.active > .nav-link,
+.navbar-nav > .nav-item:hover > .nav-link {
+    color: #21A29D !important;
+    position: relative;
+}
+
+.nav-link{
+  color: #333333 !important;
+}
+.shadow-sm{
+  background: #fff !important; 
+}
+
+.navbar-nav > .nav-item.active > .nav-link::after,
+.navbar-nav > .nav-item:hover > .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* width: 60%; */
+    width: 80%;
+    height: 2px;
+    background-color: #21A29D;
+    border-radius: 1px;
+}
+
+.sub-menu {
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    min-width: 150px;
+    border-radius: 16px;
+    overflow: hidden;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+}
+.navbar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* display: flex; */
+}
+.navbar-nav li {
+    position: relative;
+    /* padding: 10px 15px; */
+}
+.navbar-nav li:hover .sub-menu {
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0);
+}
+/* 下拉菜单箭头 */
+.sub-menu::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+}
+/* 菜单项样式 */
+.sub-menu li {
+    padding: 0;
+    white-space: nowrap !important;
+}
+.sub-menu li a {
+    display: block;
+    padding: 12px 20px;
+    color: #333;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    color: #333333 !important;
+}
+/* 菜单项选中状态样式 */
+.sub-menu li a.active {
+    color: #21A29D !important;
+}
+.sub-menu li a:hover {
+    background-color: transparent;
+    color: #21A29D !important;
+    text-decoration: none;
+    padding-left: 20px;
+}
+/* 最后一个菜单项去掉底部边框 */
+.sub-menu li:last-child a {
+    border-bottom: none;
+}
+/* 选中状态样式 */
+.sub-menu li a.active {
+    background-color: transparent;
+    color: #21A29D !important;
+    font-weight: 600;
+}
+
+/* 移动端响应式设计 */
+@media screen and (max-width: 768px) {
+    .sub-menu {
+        position: static;
+        transform: none;
+        min-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        border-top: 1px solid #eee;
+    }
+
+    /* .navbar-nav > .nav-item.active > .nav-link::after,
+.navbar-nav > .nav-item:hover > .nav-link::after {
+display: none;
+}
+     */
+    
+    .sub-menu::before {
+        display: none;
+    }
+    
+    .sub-menu li a {
+        padding: 10px 15px;
+        font-size: clamp(0.9rem, 1.8vw, 1.125rem);
+        text-align: left;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .navbar-nav li:hover .sub-menu {
+        display: block;
+    }
+    
+    /* 移动端菜单展开/收起 */
+    .navbar-nav li .sub-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .navbar-nav li:hover .sub-menu {
+        max-height: 300px;
+    }
+}
+  </style>
+
+<script>
+// 防抖函数
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// 用于存储当前激活的菜单项，避免频繁DOM操作
+let currentActiveMenuItem = null;
+// 用于存储上一次滚动位置，避免重复执行
+let lastScrollPosition = 0;
+
+// 监听滚动事件，根据屏幕位置动态选中菜单项
+window.addEventListener('scroll', debounce(function() {
+    // 获取当前滚动位置
+    const currentScrollPosition = window.scrollY;
+    
+    // 只有当滚动位置变化超过阈值时才执行逻辑，减少抖动
+    if (Math.abs(currentScrollPosition - lastScrollPosition) < 10) {
+        return;
+    }
+    
+    lastScrollPosition = currentScrollPosition;
+    
+    // 获取当前页面路径，确定需要执行的逻辑
+    const currentPath = window.location.pathname;
+    const scrollPosition = currentScrollPosition + 100;
+    const menuItems = document.querySelectorAll('.sub-menu li a');
+    
+    if (currentPath.includes('message')) {
+        // 全球服务机构页面的逻辑
+        const niboElement = document.getElementById('ningbo');
+        const guangzhouElement = document.getElementById('guangzhou');
+        const bangladeshElement = document.getElementById('bangladesh');
+        
+        if (!niboElement || !guangzhouElement || !bangladeshElement) {
+            return;
+        }
+        
+        let targetMenuItem = null;
+        
+        if (scrollPosition < niboElement.offsetTop) {
+            targetMenuItem = null;
+        } else if (scrollPosition >= niboElement.offsetTop && scrollPosition < guangzhouElement.offsetTop) {
+            targetMenuItem = Array.from(menuItems).find(item => item.textContent.includes('宁波'));
+        } else if (scrollPosition >= guangzhouElement.offsetTop && scrollPosition < bangladeshElement.offsetTop) {
+            targetMenuItem = Array.from(menuItems).find(item => item.textContent.includes('广州'));
+        } else if (scrollPosition >= bangladeshElement.offsetTop) {
+            targetMenuItem = Array.from(menuItems).find(item => item.textContent.includes('孟加拉'));
+        }
+        
+        if (targetMenuItem !== currentActiveMenuItem) {
+            if (currentActiveMenuItem) {
+                currentActiveMenuItem.classList.remove('active');
+            }
+            
+            if (targetMenuItem) {
+                targetMenuItem.classList.add('active');
+            }
+            
+            currentActiveMenuItem = targetMenuItem;
+        }
+    } else if (currentPath.includes('about')) {
+        // 关于我们页面的逻辑
+        const companyIntroductionElement = document.getElementById('company-introduction');
+        const servicePurposeElement = document.getElementById('service-purpose');
+        const companyHonorsElement = document.getElementById('company-honors');
+        const teamShowcaseElement = document.getElementById('team-showcase');
+        
+        if (!companyIntroductionElement || !servicePurposeElement || !companyHonorsElement || !teamShowcaseElement) {
+            return;
+        }
+        
+        let targetMenuItem = null;
+        
+        if (scrollPosition < companyIntroductionElement.offsetTop + companyIntroductionElement.offsetHeight) {
+            targetMenuItem = Array.from(menuItems).find(item => item.textContent.includes('公司介绍'));
+        } else if (scrollPosition >= servicePurposeElement.offsetTop && scrollPosition < companyHonorsElement.offsetTop) {
+            targetMenuItem = Array.from(menuItems).find(item => item.textContent.includes('服务宗旨'));
+        } else if (scrollPosition >= companyHonorsElement.offsetTop && scrollPosition < teamShowcaseElement.offsetTop) {
+            targetMenuItem = Array.from(menuItems).find(item => item.textContent.includes('公司荣誉'));
+        } else if (scrollPosition >= teamShowcaseElement.offsetTop) {
+            targetMenuItem = Array.from(menuItems).find(item => item.textContent.includes('团队风采'));
+        }
+        
+        if (targetMenuItem !== currentActiveMenuItem) {
+            if (currentActiveMenuItem) {
+                currentActiveMenuItem.classList.remove('active');
+            }
+            
+            if (targetMenuItem) {
+                targetMenuItem.classList.add('active');
+            }
+            
+            currentActiveMenuItem = targetMenuItem;
+        }
+    } else if (currentPath.includes('joinUs')) {
+        // 加入我们页面的逻辑
+        const companyEnvironmentElement = document.getElementById('join-us2');
+        const jobOpportunitiesElement = document.getElementById('job-opportunities');
+        
+        if (!companyEnvironmentElement || !jobOpportunitiesElement) {
+            return;
+        }
+        
+        let targetMenuItem = null;
+        
+        if (scrollPosition < companyEnvironmentElement.offsetTop + companyEnvironmentElement.offsetHeight) {
+            targetMenuItem = Array.from(menuItems).find(item => item.textContent.includes('公司环境'));
+        } else if (scrollPosition >= jobOpportunitiesElement.offsetTop) {
+            targetMenuItem = Array.from(menuItems).find(item => item.textContent.includes('工作机会'));
+        }
+        
+        if (targetMenuItem !== currentActiveMenuItem) {
+            if (currentActiveMenuItem) {
+                currentActiveMenuItem.classList.remove('active');
+            }
+            
+            if (targetMenuItem) {
+                targetMenuItem.classList.add('active');
+            }
+            
+            currentActiveMenuItem = targetMenuItem;
+        }
+    }
+}, 300)); // 使用300ms的防抖延迟
+
+// 页面加载完成后，检查初始滚动位置
+document.addEventListener('DOMContentLoaded', function() {
+    const event = new Event('scroll');
+    window.dispatchEvent(event);
+    
+    // 根据 URL 路径设置导航菜单的选中状态
+    const currentPath = window.location.pathname;
+    if (currentPath.includes('newsInformation')) {
+        let extType = '';
+        if (currentPath.includes('info')) {
+            extType = '公司新闻';
+        } else if (currentPath.includes('msg')) {
+            extType = '行业资讯';
+        }
+        
+        if (extType === '公司新闻' || extType === '行业资讯') {
+            const menuItems = document.querySelectorAll('.sub-menu li a');
+            const targetMenuItem = Array.from(menuItems).find(item => item.textContent.includes(extType));
+            
+            if (targetMenuItem) {
+                // 移除所有菜单项的 active 类
+                menuItems.forEach(item => item.classList.remove('active'));
+                // 为当前菜单项添加 active 类
+                targetMenuItem.classList.add('active');
+            }
+        }
+    }
+    
+    // 滚动触发动画
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.animate__animated');
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementBottom = element.getBoundingClientRect().bottom;
+            
+            // 当元素进入视口时触发动画
+            if (elementTop < window.innerHeight - 100 && elementBottom > 0) {
+                // 检查元素是否已添加动画类
+                if (!element.classList.contains('animate__fadeInLeft') && 
+                    !element.classList.contains('animate__fadeInRight') && 
+                    !element.classList.contains('animate__fadeInDown') && 
+                    !element.classList.contains('animate__fadeInUp')) {
+                    // 根据元素位置添加相应的动画类
+                    if (element.classList.contains('slider-container1-item-left')) {
+                        element.classList.add('animate__fadeInLeft');
+                    } else if (element.classList.contains('slider-container1-item-right')) {
+                        element.classList.add('animate__fadeInRight');
+                    } else if (element.classList.contains('slider-container2-item') || 
+                               element.classList.contains('slider-item')) {
+                        element.classList.add('animate__fadeInUp');
+                    } else {
+                        element.classList.add('animate__fadeInDown');
+                    }
+                }
+            }
+        });
+    };
+    
+    // 监听滚动事件，触发动画
+    window.addEventListener('scroll', debounce(animateOnScroll, 100));
+    // 页面加载完成后，检查初始可见元素
+    animateOnScroll();
+});
+function scrollToOffice(officeName, parentLink) {
+    console.log('officeName:', officeName, 'parentLink:', parentLink);
+    
+    // 处理公司新闻和行业资讯的导航
+    if (officeName === '公司新闻' || officeName === '行业资讯') {
+        // 判断是否需要跳转到新闻资讯页面
+        if (!window.location.href.includes('newsInformation')) {
+            // 跳转到新闻资讯页面，根据类型使用不同的路径
+            let newsUrl = '';
+            if (officeName === '公司新闻') {
+                newsUrl = parentLink + 'info/';
+            } else if (officeName === '行业资讯') {
+                newsUrl = parentLink + 'msg/';
+            }
+            console.log('跳转到新闻资讯页面:', newsUrl);
+            window.location.href = newsUrl;
+            return;
+        } else {
+            // 在新闻资讯页面，找到对应的 tab 并跳转到其链接
+            const tabItems = document.querySelectorAll('.tab-container .tab-item');
+            const targetTab = Array.from(tabItems).find(item => item.textContent.includes(officeName));
+            
+            if (targetTab) {
+                // 直接跳转到 tab 链接，而不是模拟点击
+                window.location.href = targetTab.getAttribute('href');
+            }else {
+              if(officeName === '公司新闻') {
+                window.location.href = parentLink + 'info/';
+              } else if (officeName === '行业资讯') {
+                window.location.href = parentLink + 'msg/';
+              }
+            }            
+            return;
+        }
+    }
+    
+    // 判断是否需要跳转到其他页面
+    if (parentLink && !window.location.href.includes(parentLink.replace(/^.*?(\/[^\/]*).*$/, '$1'))) {
+        // 构建跳转URL，添加哈希值
+        const targetUrl = parentLink + (parentLink.includes('?') ? '&' : '?') + 'office=' + encodeURIComponent(officeName);
+        window.location.href = targetUrl;
+        return;
+    }
+    
+    // 在当前页面，根据公司名称确定对应的id
+    let targetId = '';
+    if (officeName.includes('宁波')) {
+        targetId = 'ningbo';
+    } else if (officeName.includes('广州')) {
+        targetId = 'guangzhou';
+    } else if (officeName.includes('孟加拉')) {
+        targetId = 'bangladesh';
+    } else if (officeName.includes('服务宗旨')) {
+        targetId = 'service-purpose';
+    } else if (officeName.includes('公司荣誉')) {
+        targetId = 'company-honors';
+    } else if (officeName.includes('团队风采')) {
+        targetId = 'team-showcase';
+    } else if (officeName.includes('公司简介')) {
+        targetId = 'company-introduction';
+    } else if (officeName.includes('公司环境')) {
+        targetId = 'join-us2';
+    } else if (officeName.includes('工作机会')) {
+        targetId = 'job-opportunities';
+    } else if (officeName.includes('联系我们')) {
+        targetId = 'contact-us';
+    }
+    
+    if (targetId) {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            // 计算滚动距离，考虑固定导航栏高度（57px）
+            const offsetTop = targetElement.offsetTop - 57;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+        console.log(targetId,'targetId',targetElement);
+    }
+}
+</script>
+
+<!-- 头部导航 -->
+<nav class="navbar navbar-light bg-light fixed-top navbar-expand-lg shadow-sm">
+  <div class="container">
+	  	<a class="navbar-brand my-1" href="{pboot:sitepath}/">
+	      <img src="{pboot:sitelogo}" class="logo-sm-height"  height="50">
+	    </a>
+	    
+	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	    	<span class="navbar-toggler-icon"></span>
+	    </button>
+	    
+	    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+	        <ul class="navbar-nav">
+	       	  <li class="nav-item {pboot:if(0=='{sort:scode}')}active{/pboot:if}">
+				 <a class="nav-link" href="{pboot:sitepath}/" >首页</a>
+	          </li>
+	          <!-- {pboot:nav num=10 parent=0}
+	              <li class="nav-item {pboot:if('[nav:scode]'=='{sort:tcode}')}active{/pboot:if}">
+	                <a class="nav-link" href="[nav:link]">[nav:name]</a>
+	              </li>
+	          {/pboot:nav} -->
+
+            {pboot:nav parent=0}
+    <li class="nav-item {pboot:if('[nav:scode]'=='{sort:tcode}')}active{/pboot:if}">
+        <a class="nav-link" href="[nav:link]">
+            [nav:name]
+            {pboot:if([nav:soncount]>0)}
+                <i class="fa fa-caret-down" style="margin-left: 5px; font-size: 12px;"></i>
+            {/pboot:if}
+        </a>
+        {pboot:if([nav:soncount]>0)}
+            <ul class="sub-menu">
+                {pboot:2nav parent=[nav:scode]}
+                    <li><a class="nav-link" href="javascript:void(0)" onclick="scrollToOffice('[2nav:name]', '[nav:link]')">[2nav:name]</a></li>
+                {/pboot:2nav}
+            </ul>
+        {/pboot:if}
+    </li>
+{/pboot:nav}
+            
+
+                    <!-- <li class="nav-item">
+          <a class="nav-link" href="{pboot:lgpath}&lg=cn">
+            <i class="bi bi-globe-asia-australia"></i>&nbsp;中文
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{pboot:lgpath}&lg=en">
+            <i class="bi bi-globe-asia-australia"></i>&nbsp;English
+          </a>
+        </li> -->
+	      </ul>
+	      
+	      <!-- <span class="navbar-text">
+	     	 {pboot:if({pboot:islogin}==1)}
+				<a class="text-secondary" href="{pboot:ucenter}" >个人中心</a>
+		     {else}
+		     
+		     	{pboot:2if({pboot:registerstatus})}
+					<a class="text-secondary" href="{pboot:register}" >注册</a>
+				{/pboot:2if}
+				
+				{pboot:2if({pboot:registerstatus} && {pboot:loginstatus})}
+					/
+				{/pboot:2if}
+				
+				{pboot:2if({pboot:loginstatus})}
+					<a class="text-secondary" href="{pboot:login}" >登录</a>
+				{/pboot:2if}
+				
+		     {/pboot:if}
+	      </span> -->
+	      
+	    </div>
+    </div>
+</nav>
+
+<!--占位导航栏-->
+<div style="height:57px;" class="head-sm-height"></div>
+

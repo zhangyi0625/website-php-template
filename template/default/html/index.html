@@ -1,0 +1,757 @@
+{include file=comm/head.html}
+
+<!-- 幻灯片 -->
+<div class="swiper-container">
+  <div style="width: 100%;height: clamp(20rem, 60vw, 50rem);position: relative;">
+      <div class="swiper-container-img"></div>
+      <div class="container">
+        <p class="swiper-container-p1">真诚待人，真实对己</p>
+        <p class="swiper-container-p2">无论您的货物要去往何处，我们都能为您提供最优的物流解决方案</p>
+      </div>
+  </div>
+    <!-- <div class="swiper-wrapper">
+    	{pboot:slide num=5 gid=1}
+        	<div class="swiper-slide">
+            {pboot:if([slide:link] != '')}
+              <a href="[slide:link]">
+                <img src="[slide:src]" class="d-block w-100 slideshow" >
+              </a>
+            {else}
+              <img src="[slide:src]" class="d-block w-100 slideshow" >
+            {/pboot:if}
+        		<div class="container">
+			    	<div class="position-absolute text-light" style="top:30%;">
+						<h1 class="fs-20 fs-sm-32 wow slideInUp">[slide:title]</h1>
+					 	<h4 class="fs-14 fs-sm-20 wow slideInUp">[slide:subtitle]</h4>
+					</div>
+			    </div>
+        	</div>
+        {/pboot:slide} 
+    </div>
+    <div class="swiper-button-prev d-none d-md-block"></div>
+    <div class="swiper-button-next d-none d-md-block"></div>
+    <div class="swiper-pagination"></div> -->
+</div>
+
+<div style="background: #fff;">
+  <div class="container">
+    <div class="statistics">
+  <div class="statistics-item">
+    <div class="statistics-number" data-target="300">0+</div>
+    <div class="statistics-text">覆盖热门港口</div>
+  </div>
+  <div class="statistics-item">
+    <div class="statistics-number" data-target="20">0+</div>
+    <div class="statistics-text">合作船东</div>
+  </div>
+  <div class="statistics-item">
+    <div class="statistics-number" data-target="260">0</div>
+    <div class="statistics-text">海外代理</div>
+  </div>
+  <div class="statistics-item">
+    <div class="statistics-number" data-target="99.9">0%</div>
+    <div class="statistics-text">准时到达率</div>
+  </div>
+  </div>
+  </div>
+</div>
+
+<div  style="background: linear-gradient( 180deg, #FFFFFF 0%, #F0F6FF 100%);">
+  <div class="container">
+    <div class="coreBusiness-tab">
+  <p style="font-weight: 500;
+font-size: clamp(1.8rem, 4vw, 2.5rem);
+color: #333333;">核心业务领域</p>
+  <p style="font-weight: 400;
+font-size: clamp(0.9rem, 2vw, 1.25rem);
+color: #333333;margin-top: clamp(0.3rem, 0.8vw, 0.375rem);">提供海陆空全方位物流解决方案，满足您多样化的运输需求</p>
+<div class="coreBusiness-tab-grid">
+{pboot:slide num=100 gid=7}
+<div class="coreBusiness-tab-item">
+  <div class="coreBusiness-tab-item-img">
+      <a href="[slide:link]" style="width: 100%;height: 100%;" target="_blank">
+    <img
+    style="width: 100%;height: 100%;object-fit: cover;border-radius: 6px;"
+    src="[slide:src]"
+    class="core-business-item-img wow {pboot:if([slide:i] % 2 == 1) slideInUp {else} slideInDown {/pboot:if}}"
+    data-wow-duration="0.8s"
+    data-wow-delay="{[slide:i] * 200 + 200}ms"
+    />
+  </a>
+  </div>
+  <div class="coreBusiness-tab-item-content">
+      <p class="coreBusiness-tab-item-title wow {pboot:if([slide:i] % 2 == 1) fadeInLeft {else} fadeInRight {/pboot:if}}" data-wow-duration="0.6s" data-wow-delay="{[slide:i] * 200 + 400}ms">[slide:title]</p>
+  <p class="coreBusiness-tab-item-subtitle wow {pboot:if([slide:i] % 2 == 1) fadeInLeft {else} fadeInRight {/pboot:if}}" data-wow-duration="0.6s" data-wow-delay="{[slide:i] * 200 + 600}ms">[slide:subtitle lencn=40]</p>
+  <div class="coreBusiness-tab-item-line"></div>
+  </div>
+</div>
+                    {/pboot:slide}
+</div>
+</div>
+</div>
+</div>
+
+<div class="areaAdvantage-tab">
+  <div class="container">
+  <div class="areaAdvantage-tab-content">
+    <div class="areaAdvantage-tab-content-left">
+      <p style="font-weight: bold;
+font-size: clamp(0.7rem, 1.5vw, 0.875rem);
+color: #00BBB3;" class="wow fadeInLeft" data-wow-duration="0.8s">WHY CHOOSE US</p>
+<p style="font-weight: 600;
+font-size: clamp(1.8rem, 4vw, 2.5rem);
+color: #FFFFFF;margin: 0px 0px 0px 2px;" class="wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="200ms">航线优势</p>
+<p style="font-weight: 600;
+font-size: clamp(1.8rem, 4vw, 2.5rem);
+color: #91E9E0;" class="wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="400ms">重塑物流体验</p>
+<p style="font-weight: 600;
+font-size: clamp(0.8rem, 1.8vw, 1.1rem);
+color: #FFFFFF;margin-bottom: 40px;" class="wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="600ms">我们的航线网络覆盖了全球主要的贸易通道，无论是在繁华的欧美市场，还是新兴的东南亚、非洲市场，我们都能为您提供稳定、可靠的物流支持。</p>
+  {pboot:slide num=3 gid=8}
+<div style="margin-bottom: 18px;display: flex;align-items: center;" class="wow {pboot:if([slide:i] % 2 == 1) fadeInLeft {else} fadeInRight {/pboot:if}}" data-wow-duration="0.6s" data-wow-delay="{[slide:i] * 200 + 800}ms">
+<img src="[slide:src]" alt="" width="48" height="48">
+<div style="display: flex;flex-direction: column;margin-left: 12px;">
+  <div style="font-weight: 600;
+font-size: clamp(1rem, 2.2vw, 1.25rem);
+color: #91E9E0;">[slide:title]</div>
+<div style="font-weight: 400;
+font-size: clamp(0.75rem, 1.5vw, 1rem);
+color: #FFFFFF;">[slide:subtitle]</div>
+</div>
+</div>
+      {/pboot:slide}
+    </div>
+    <div class="areaAdvantage-tab-content-right wow fadeInRight" data-wow-duration="1s" data-wow-delay="500ms"></div>
+  </div>
+  </div>
+</div>
+
+<!--产品推荐-->
+<div class="bg-white py-5">
+    <div class="container">
+    
+      {pboot:sort scode=5}
+      	<div style="font-size: clamp(1.8rem, 4vw, 2.5rem) !important;color: #333333 !important;" class="text-center fs-26 fs-sm-28 text-success wow fadeInDown">[sort:name]</div>
+      	<div style="font-size: clamp(0.9rem, 2vw, 1.25rem) !important;color: #333333 !important;" class="text-center fs-14 fs-sm-16 mb-4 text-secondary wow fadeInUp" data-wow-delay="1s">- [sort:subname] -</div>
+      {/pboot:sort}
+      
+      <div class="row">
+       {pboot:list scode=5 num=3 order=date}
+        <div class="col-12 col-sm-6 col-lg-4 wow zoomIn" data-wow-delay="[list:i]00ms" data-wow-duration="1s">
+              <div class="card">
+                  <div class="card-img-150"><a href="[list:link]"><img class="card-img-top" src="[list:ico]" alt="[list:title]"></a></div>
+                  <div class="card-body">
+                                        <div class="badge-item">
+                        {pboot:tags id=[list:id] scode={sort:tcode}}
+                            <a href="[tags:link]">
+                        <span class="badge badge-secondary
+                        {pboot:if('[tags:text]'=='公司新闻')}badge-danger{/pboot:if}
+                        {pboot:if('[tags:text]'=='行业资讯')}badge-warning{/pboot:if}
+                        " >[tags:text]
+                      </span></a>
+                        {/pboot:tags}
+                    </div>
+                    <h5 class="card-title"><a href="[list:link]">[list:title lencn=12]</a></h5>
+                    <p class="card-text">
+	                    <!-- {pboot:if([list:istop]==1)}
+	                		<span class="badge badge-danger">置顶</span>
+	                	{/pboot:if}
+	                	{pboot:if([list:isrecommend]==1)}
+	                		<span class="badge badge-warning">推荐</span>
+	                	{/pboot:if}
+	                	{pboot:if([list:isheadline]==1)}
+	                		<span class="badge badge-info">头条</span>
+	                	{/pboot:if} -->
+	                	[list:content drophtml=1 dropblank=1 len=50]
+                	</p>
+                                    <a href="[list:link]">
+                                    <div style="display: flex;align-items: center;margin-top: 6px;">  
+                    <p style="color: #21A29D;font-weight: 400;
+font-size: clamp(0.6rem, 1.2vw, 0.7rem);">阅读全文</p>
+                    <img src="{pboot:sitetplpath}/images/arrowright-outlined.png" width="12" height="12" style="margin-left: 6px;" alt="">
+                  </div>
+                  </a>
+                  </div>
+               </div>
+         </div>
+        {/pboot:list}
+      </div>
+	  {pboot:sort scode=5}
+			<div style="border-radius: 25px !important;
+border: 1px solid #21A29D !important;color: #21A29D !important;font-size: clamp(0.7rem, 1.5vw, 0.8rem) !important;width: clamp(8rem, 20vw, 9rem) !important;margin: auto !important;" class="text-center mt-4 wow fadeInDown" data-wow-delay="1s"><h4><a href="[sort:link]" class="text-secondary fs-14 fs-sm-16" style="font-size: 14px;
+color: #21A29D !important;">查看全部</a></h4></div>
+	  {/pboot:sort}
+    </div>
+</div>
+
+<div class="contact-us">
+  <div class="container">
+<p style="font-weight: 600;
+font-size: clamp(1.8rem, 4vw, 2.5rem);" class="wow fadeInUp" data-wow-duration="0.8s">准备改变您的物流方式？</p>
+<p style="margin-top: 6px; font-size: clamp(0.8rem, 1.8vw, 1.1rem);" class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="200ms">联系我们的专家团队，获取为您量身定制的物流解决方案。无论货物大小，无论目的地远近，我们都全力以赴。</p>
+<div style="font-size: clamp(0.8rem, 1.8vw, 1rem);" class="contact-us-btn wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="400ms" onclick="window.location.href='contactUs'">联系我们</div>
+</div>
+</div>
+
+<!-- 关于我们 -->
+<!-- <div class="bg-light py-5">
+    <div class="container">
+      {pboot:sort scode=1}
+      	<div class="text-center fs-26 fs-sm-28 text-info wow fadeInDown">[sort:name]</div>
+      	<div class="text-center fs-14 fs-sm-16 mb-4 text-secondary wow fadeInUp" data-wow-delay="1s">- [sort:subname] -</div>
+      {/pboot:sort}
+      
+      {pboot:content id=1}
+      	<div class="row text-secondary mb-5 px-3 lh-2 wow fadeInDown" data-wow-delay="500ms" style="text-indent:30px;">
+            [content:content drophtml=1 dropblank=1 len=442 more='']
+      	</div>
+     	<div class="text-center wow fadeInDown" data-wow-delay="1s"><h4><a href="[content:link]" class="text-secondary fs-14 fs-sm-16">查看更多</a></h4></div>
+      {/pboot:content}
+    </div>
+</div> -->
+
+<!-- 新闻动态 -->
+<!-- <div class="bg-white py-5">
+    <div class="container">
+      {pboot:sort scode=2}
+      	<div class="text-center fs-26 fs-sm-28 text-warning wow fadeInDown">[sort:name]</div>
+      	<div class="text-center fs-14 fs-sm-16 mb-5 text-secondary wow fadeInUp" data-wow-delay="1s">- [sort:subname] -</div>
+      {/pboot:sort}
+      
+      <div class="row">
+      	{pboot:list scode=2 num=4 order=date}
+            <div class="col-12 col-lg-6 mb-3 wow fadeInUp" data-wow-delay="500ms">
+                <div class="media mb-3">
+                  <div class="media-body">
+                     <h5><a href="[list:link]" title="[list:title]">[list:title lencn=20]</a></h5>
+                     <p><a href="[list:link]" class="text-secondary lh-2">[list:content drophtml=1 dropblank=1 lencn=60] [list:date style=Y-m-d]</a></p>
+                  </div>
+                </div>
+            </div>
+        {/pboot:list}
+      </div>
+	  {pboot:sort scode=2}
+		<div class="text-center wow fadeInDown" data-wow-delay="1s"><h4><a href="[sort:link]" class="text-secondary fs-14 fs-sm-16">查看更多</a></h4></div>
+	  {/pboot:sort}
+    </div>
+</div> -->
+
+
+<style>
+  .swiper-container-img{
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url({pboot:sitepath}/static/upload/image/banner.jpg);
+  }
+
+  .swiper-container-p1{
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    position: absolute;
+    top: 117px;
+    color: #fff;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+
+    .swiper-container-p2{
+    font-size: clamp(1rem, 3vw, 1.6rem);
+    position: absolute;
+    top: 197px;
+     color: #fff;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease 0.5s, transform 1s ease 0.5s;
+  }
+
+  /* 动画完成后的状态 */
+  .swiper-container-p1.animate-in{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .swiper-container-p2.animate-in{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .statistics{
+    /* background: #fff; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: clamp(1rem, 3vw, 1.25rem);
+    padding: clamp(2rem, 5vw, 3rem) 0;
+  }
+  .statistics-item{
+    margin: auto;
+    text-align: center;
+  }
+  .statistics-number{
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 600;
+    color: #21A29D;
+    margin-bottom: clamp(0.5rem, 1.5vw, 0.9rem);
+  }
+  .statistics-text{
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    font-weight: 500;
+    color: #333333;
+  }
+  .coreBusiness-tab{
+    text-align: center;
+    padding: clamp(3rem, 8vw, 4.5rem) 0 0 0;
+  }
+  .coreBusiness-tab-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: clamp(1.5rem, 4vw, 1.9rem);
+    margin-top: clamp(3rem, 8vw, 3.6rem);
+  }
+  .coreBusiness-tab-item{
+    /* width: 268px; */
+    /* height: clamp(15rem, 40vw, 17.5rem); */
+    height: 508px;
+    position: relative;
+  }
+  .coreBusiness-tab-item-img{
+    height: calc(100% - 162px);
+  }
+  .coreBusiness-tab-item-content{
+    height: 162px;
+    bottom: 162px;
+    background: linear-gradient( 180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);position: relative;
+    border-radius: 0px 0px 12px 12px
+  }
+  .coreBusiness-tab-item-line{
+height: 1px;
+background: #91E9E0;
+border-radius: 1px;
+padding: 0 17px;
+position: absolute;
+bottom: 17px;
+left: 17px;
+    width: calc(100% - 40px);
+  }
+  .coreBusiness-tab-item-title{
+font-weight: 600;
+font-size: clamp(1rem, 2.5vw, 1.5rem);
+color: #FFFFFF;
+position: absolute;
+bottom: clamp(4rem, 10vw, 4.8rem);
+left: clamp(1rem, 3vw, 1.1rem);
+  }
+  .coreBusiness-tab-item-subtitle{
+font-weight: 400;
+font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+color: #FFFFFF;
+margin-top: 5px 0 9px;
+bottom: clamp(1.7rem, 5vw, 1.7rem);
+left: clamp(1rem, 3vw, 1.1rem);
+text-align: left;
+position: absolute;
+    width: calc(100% - 40px);
+  }
+  .contact-us{
+    width: 100%;
+    height: fit-content;
+    background: linear-gradient( 270deg, #94EAE1 0%, #17CEB2 100%);
+    color: #fff;
+    padding: clamp(2rem, 6vw, 3.5rem) 0;
+    margin: auto;
+    text-align: center;
+  }
+  .contact-us-btn{
+    margin: clamp(2rem, 6vw, 2.3rem) auto 0;
+    width: clamp(8rem, 20vw, 9rem);
+height: clamp(2.5rem, 6vw, 2.7rem);
+line-height: clamp(2.5rem, 6vw, 2.7rem);
+background: #FFFFFF;
+border-radius: 25px;
+text-align: center;
+font-size: clamp(0.7rem, 2vw, 0.8rem);
+font-weight: 600;
+color: #21A29D;
+  }
+  .areaAdvantage-tab{
+    height: fit-content;
+    min-height: 20rem;
+    background-image: url({pboot:sitepath}/static/upload/image/bg20.png);
+    background-repeat: round;
+    background-position: round;
+  }
+  .areaAdvantage-tab-content{
+    padding: clamp(3rem, 8vw, 4.5rem) 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .areaAdvantage-tab-content-left{
+    text-align: left;
+    flex: 1;
+  }
+  .areaAdvantage-tab-content-right{
+    width: 50%;
+    /* height: clamp(15rem, 30vw, 16.7rem); */
+    height: clamp(15rem, 35vw, 30.25rem);
+    background-image: url({pboot:sitepath}/static/upload/image/bg21.png);
+    background-repeat: round;
+    /* background-position: round; */
+    margin-left: clamp(1rem, 3vw, 2rem);
+  }
+  .card-img-150{
+        height: clamp(10rem, 20vw, 12rem);
+        overflow: hidden;
+        border-radius: 7px 7px 0 0;
+      }
+      .card-img-top{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      .card:hover .card-img-top{
+        transform: scale(1.05);
+      }
+      .badge-danger{
+        width: 43px;
+height: 16px;
+line-height: 13px;
+        background: #2CD3BA;
+border-radius: 2px;
+font-weight: 400;
+font-size: 8px;
+color: #FFFFFF;
+text-align: center;
+      }
+      .badge-warning{
+        width: 43px;
+height: 16px;
+line-height: 13px;
+        background: #FA8C16;
+border-radius: 2px;
+font-weight: 400;
+font-size: 8px;
+color: #FFFFFF;
+text-align: center;
+      }
+      .card{
+        background: #FFFFFF;
+box-shadow: 0px 1 7px 0px rgba(0,0,0,0.04);
+border-radius: 7px;
+border: unset;
+min-height: 290px;
+      }
+      .card-body{
+        padding:8px 15px 15px 15px;
+        text-align: left;
+      }
+      .card-text{
+        font-weight: 400;
+font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+color: #333333;
+      }
+      .card-title{
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        font-weight: 600;
+        margin-bottom: clamp(0.5rem, 1vw, 0.75rem);
+        margin-top: clamp(0.3rem, 1vw, 0.75rem);
+      }
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* padding-bottom: 10px; */
+            /* border-bottom: 1px solid #e0e0e0; */
+            position: relative;
+        }
+
+        .tab-item {
+            margin: 0 15px;
+            padding: 5px 0;
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tab-item:hover {
+            color: #21A29D;
+            text-decoration: none;
+        }
+
+        .tab-item.active {
+            color: #21A29D;
+        }
+
+        .tab-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #21A29D;
+            animation: slideUnderline 0.3s ease-in-out;
+        }
+  /* 平板端优化 */
+  @media screen and (max-width: 768px) {
+    .swiper-container-img{
+      height: 100%;
+      background-repeat: round;
+      background-size: auto;
+    background-repeat: round;
+    background-position: inherit;
+      background-image: url({pboot:sitepath}/static/upload/image/banner.jpg);
+    }
+    .statistics{
+      grid-template-columns: repeat(2, 1fr);
+      padding: clamp(1.5rem, 4vw, 2rem) clamp(1rem, 3vw, 1.5rem);
+      grid-gap: clamp(0.8rem, 2vw, 1rem);
+    }
+    .statistics-number{
+      font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+    }
+    .statistics-text{
+      font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+    }
+    .coreBusiness-tab{
+      padding: clamp(2rem, 6vw, 2.5rem) clamp(1rem, 3vw, 1.5rem);
+    }
+    .coreBusiness-tab-grid{
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: clamp(1rem, 3vw, 1.5rem);
+      margin-top: clamp(2rem, 6vw, 2.5rem);
+    }
+    .coreBusiness-tab-item{
+      /* height: clamp(12rem, 35vw, 15rem); */
+      height: 508px;
+    }
+    .areaAdvantage-tab{
+      height: fit-content;
+    }
+    .areaAdvantage-tab-content{
+      display: flex;
+      padding: clamp(2rem, 6vw, 2.5rem) clamp(1rem, 3vw, 1.5rem);
+      flex-direction: column;
+      height: fit-content;
+    }
+    .areaAdvantage-tab-content-right{
+      width: 100%;
+      /* height: clamp(12rem, 30vw, 14rem); */
+      margin-left: 0;
+      margin-top: clamp(1rem, 3vw, 1.5rem);
+    }
+  }
+
+  /* 小屏幕移动端优化 */
+  @media screen and (max-width: 576px) {
+    .statistics{
+      grid-template-columns: repeat(2, 1fr);
+      padding: clamp(1rem, 3vw, 1.5rem) clamp(0.8rem, 2vw, 1rem);
+      grid-gap: clamp(0.6rem, 1.5vw, 0.8rem);
+    }
+    .statistics-number{
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      margin-bottom: clamp(0.3rem, 1vw, 0.5rem);
+    }
+    .statistics-text{
+      font-size: clamp(0.6rem, 1.5vw, 0.7rem);
+    }
+    .coreBusiness-tab{
+      padding: clamp(1.5rem, 4vw, 2rem) clamp(0.8rem, 2vw, 1rem);
+    }
+    .coreBusiness-tab-grid{
+      grid-gap: clamp(0.8rem, 2vw, 1rem);
+      margin-top: clamp(1.5rem, 4vw, 2rem);
+    }
+    .coreBusiness-tab-item{
+      /* height: clamp(10rem, 30vw, 12rem); */
+      height: 508px;
+    }
+    .areaAdvantage-tab-content{
+      padding: clamp(1.5rem, 4vw, 2rem) clamp(0.8rem, 2vw, 1rem);
+    }
+    .areaAdvantage-tab-content-right{
+      height: clamp(10rem, 25vw, 12rem);
+    }
+    .contact-us{
+      padding: clamp(1.5rem, 4vw, 2rem) clamp(0.8rem, 2vw, 1rem);
+    }
+    .contact-us-btn{
+      width: clamp(7rem, 18vw, 8rem);
+      height: clamp(2rem, 5vw, 2.3rem);
+      line-height: clamp(2rem, 5vw, 2.3rem);
+      font-size: clamp(0.6rem, 1.8vw, 0.7rem);
+    }
+  }
+
+  /* 超小屏幕移动端优化 */
+  @media screen and (max-width: 420px) {
+    .statistics{
+      grid-template-columns: repeat(2, 1fr);
+      padding: clamp(0.8rem, 2vw, 1rem) clamp(0.5rem, 1.5vw, 0.8rem);
+      grid-gap: clamp(0.5rem, 1.2vw, 0.6rem);
+    }
+    .statistics-number{
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+    }
+    .statistics-text{
+      font-size: clamp(0.5rem, 1.2vw, 0.6rem);
+    }
+    .coreBusiness-tab{
+      padding: clamp(1rem, 3vw, 1.5rem) clamp(0.5rem, 1.5vw, 0.8rem);
+    }
+    .coreBusiness-tab-grid{
+      grid-gap: clamp(0.6rem, 1.5vw, 0.8rem);
+      margin-top: clamp(1rem, 3vw, 1.5rem);
+    }
+    .coreBusiness-tab-item{
+      /* height: clamp(8rem, 25vw, 10rem); */
+      height: 508px;
+    }
+    .areaAdvantage-tab-content{
+      padding: clamp(1rem, 3vw, 1.5rem) clamp(0.5rem, 1.5vw, 0.8rem);
+    }
+    .areaAdvantage-tab-content-right{
+      height: clamp(8rem, 20vw, 10rem);
+    }
+  }
+</style>
+
+<!-- <script src="{pboot:sitetplpath}/swiper-4.3.5/js/swiper.min.js"></script> -->
+<script>        
+  // var mySwiper = new Swiper ('.swiper-container', {
+  //   direction: 'horizontal',
+  //   loop: true,
+  //   speed: 1500,
+  //   autoplay : {
+  //       delay:3500,
+  //       disableOnInteraction: false
+  //    },
+     
+   
+  //   // 如果需要分页器
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //     clickable :true,
+  //   },
+    
+  //   // 如果需要前进后退按钮
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
+   
+  // })        
+  
+  // 数字滚动累加动画函数
+  function animateNumber(element, target, duration) {
+    var start = 0;
+    var increment = target / (duration / 16);
+    var timer = setInterval(function() {
+      start += increment;
+      if (start >= target) {
+        start = target;
+        clearInterval(timer);
+      }
+      
+      // 根据data-target属性值判断是否需要添加后缀
+      var suffix = '';
+      var originalText = element.getAttribute('data-original-text') || element.textContent;
+      if (originalText.includes('+')) {
+        suffix = '+';
+      } else if (originalText.includes('%')) {
+        suffix = '%';
+      }
+      
+      // 处理小数点
+      if (Number.isInteger(target)) {
+        element.textContent = Math.floor(start) + suffix;
+      } else {
+        element.textContent = start.toFixed(1) + suffix;
+      }
+    }, 16);
+  }
+  
+  // 检查元素是否在可视区域内
+  function isElementInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return (
+      rect.top < window.innerHeight &&
+      rect.bottom > 0
+    );
+  }
+  
+  // 页面滚动监听函数
+  function handleScroll() {
+    var statisticsNumbers = document.querySelectorAll('.statistics-number');
+    statisticsNumbers.forEach(function(element) {
+      if (isElementInViewport(element) && !element.classList.contains('animated')) {
+        element.classList.add('animated');
+        // 保存原始文本，用于判断后缀
+        element.setAttribute('data-original-text', element.textContent);
+        var target = parseFloat(element.getAttribute('data-target'));
+        animateNumber(element, target, 2000); // 2秒完成动画
+      }
+    });
+  }
+  
+  // 页面加载完成后初始化
+  document.addEventListener('DOMContentLoaded', function() {
+    handleScroll();
+  });
+  
+  // 监听页面滚动
+  window.addEventListener('scroll', handleScroll);
+  
+  // 优化动画性能
+  function optimizeAnimations() {
+    // 检查浏览器支持情况
+    if ('IntersectionObserver' in window) {
+      // 使用Intersection Observer API优化滚动监听
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && entry.target.classList.contains('statistics-number') && !entry.target.classList.contains('animated')) {
+            entry.target.classList.add('animated');
+            entry.target.setAttribute('data-original-text', entry.target.textContent);
+            var target = parseFloat(entry.target.getAttribute('data-target'));
+            animateNumber(entry.target, target, 2000);
+          }
+        });
+      }, {
+        rootMargin: '0px',
+        threshold: 0.1
+      });
+      
+      document.querySelectorAll('.statistics-number').forEach(function(el) {
+        observer.observe(el);
+      });
+    }
+  }
+  
+  // 初始化优化
+  document.addEventListener('DOMContentLoaded', function() {
+    optimizeAnimations();
+    
+    // 触发幻灯片文字动画
+    const p1 = document.querySelector('.swiper-container-p1');
+    const p2 = document.querySelector('.swiper-container-p2');
+    
+    if (p1 && p2) {
+      // 添加动画类
+      p1.classList.add('animate-in');
+      p2.classList.add('animate-in');
+    }
+  });
+</script>
+  
+{include file=comm/foot.html}
+
