@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="{pboot:sitetplpath}/css/custom.css">
 	<link rel="shortcut icon" href="{pboot:sitepath}/favicon.ico" type="image/x-icon">
 	<script src="{pboot:sitetplpath}/js/jquery-1.12.4.min.js" ></script>
+	<script type="text/javascript" src="https://api.tianditu.gov.cn/api?v=4.0&tk=7141f531a5af146ff8645577092b84d7"></script>
 </head>
 <body>
   <style>
@@ -435,6 +436,12 @@ function scrollToOffice(officeName, parentLink) {
         targetId = 'job-opportunities';
     } else if (officeName.includes('联系我们')) {
         targetId = 'contact-us';
+    }else if (officeName.includes('全球海运业务')) {
+        targetId = '全球海运业务';
+    }else if (officeName.includes('多式联运业务')) {
+        targetId = '多式联运业务';
+    }else if (officeName.includes('跨境电商物流')) {
+        targetId = '跨境电商物流';
     }
     
     if (targetId) {

@@ -72,7 +72,7 @@
         <div class="message-address" id="guangzhou">
       <!-- <img class="message-address-img" src="{pboot:sitetplpath}/images/address2.png" alt="" /> -->
        <div class="message-address-img">
-        <div id="mapDiv" style="width:100%; height:100%"></div>
+        <div id="mapDiv2" style="width:100%; height:100%"></div>
        </div>
         <div>
           <p class="message-address-p1">广州分公司</p>
@@ -86,9 +86,6 @@
 
             <div class="message-address" id="bangladesh">
       <img class="message-address-img" src="{pboot:sitetplpath}/images/address3.png" alt="" />
-              <!-- <div class="message-address-img">
-        <div id="mapDiv1" style="width:100%; height:100%"></div>
-       </div> -->
         <div>
           <p class="message-address-p1">孟加拉国分公司</p>
           <p class="message-address-p2">我们公司是中国到吉大港最大的订舱代理, 有着最好的服务与最便宜的涵盖纺织品和非纺的价格，我们与mcc（msk）有着超过20年的合作。 包括散货、大宗货物、大型设备、纺织品进出口业务，同时为孟加拉国本土纺织服装制造企业提供配套服务，涵盖工厂搬迁等项目。整个工厂和孟加拉国工厂的注册, 同时我们还可以提供fob 孟加拉付款服务。</p>
@@ -102,8 +99,6 @@
 <script>
 // 获取 URL 参数
   function getUrlParams() {
-        // 初始化地图
-    onLoad();
     const params = {};
     const queryString = window.location.search.substring(1);
     const pairs = queryString.split('&');
@@ -138,11 +133,14 @@
     
     // 可以添加更多参数监听逻辑
     // 例如：if (params.paramName) { /* 执行相应操作 */ }
-    
+  });
+
+  // 确保在页面加载完成后初始化地图
+  window.onload = function() {
     // 初始化地图
     onLoad();
     onLoad1();
-  });
+  };
 
 //ajax提交留言
 function submsg(obj){
@@ -182,61 +180,58 @@ function submsg(obj){
   return false;
 }
 
-        var map;
-        var zoom = 15;
+        var map2;
+        var zoom2 = 15;
         function onLoad() {
             // 初始化地图
-            map = new T.Map('mapDiv');
+            map2 = new T.Map('mapDiv2');
             
             // 设置中心点和缩放级别（广州分公司坐标）
-            var centerPoint = new T.LngLat(113.264434, 23.129118);
-            map.centerAndZoom(centerPoint, zoom);
-            var licontent=`<h4>广州分公司</h4>
+            var centerPoint2 = new T.LngLat(113.32957, 23.13556);
+            map2.centerAndZoom(centerPoint2, zoom2);
+            var licontent2=`<h4>广州分公司</h4>
             <p><strong>地址：</strong>广州市天河区天河路490号2011</p>
             <p><strong>电话：</strong>020-87543233        13570272347</p>`;
-            var marker = new T.Marker(new T.LngLat(113.264434, 23.129118));
-            console.log(marker)
-            map.addOverLay(marker);
-            var infoWindow
+            var marker2 = new T.Marker(new T.LngLat(113.32957, 23.13556));
+            map2.addOverLay(marker2);
+            var infoWindow2
             if(window.innerWidth > 500) {
-                infoWindow = new T.InfoWindow(licontent, {minWidth:250});
+                infoWindow2 = new T.InfoWindow(licontent2, {minWidth:300});
             } else {
-                infoWindow = new T.InfoWindow(licontent, {minWidth:140});
+                infoWindow2 = new T.InfoWindow(licontent2, {minWidth:240});
             }
-            marker.openInfoWindow(infoWindow);
+            marker2.openInfoWindow(infoWindow2);
             // map.centerAndZoom(centerPoint,12);
             // 添加缩放控件
-            map.addControl(new T.Control.Zoom());
+            map2.addControl(new T.Control.Zoom());
         }
         var map1;
         var zoom1 = 15;
         function onLoad1() {
             // 初始化地图
             map1 = new T.Map('mapDiv1');
-            
-            // 设置中心点和缩放级别（广州分公司坐标）
-            var centerPoint = new T.LngLat(121.592055,29.871378);
-            map1.centerAndZoom(centerPoint, zoom1);
-            var licontent=`<h4>宁波总公司</h4>
+            var centerPoint1 = new T.LngLat(121.58787,29.874);
+            map1.centerAndZoom(centerPoint1, zoom1);
+            var licontent1=`<h4>宁波总公司</h4>
             <p><strong>地址：</strong>浙江省宁波市鄞州区惊驾路555号泰富广场Ａ座803室</p>
             <p><strong>电话：</strong>0574-87645648     0574-87643177</p>`;
-            var marker = new T.Marker(new T.LngLat(121.592055,29.871378));
-            map1.addOverLay(marker);
-            var infoWindow
+            var marker1 = new T.Marker(new T.LngLat(121.58787,29.874));
+            map1.addOverLay(marker1);
+            var infoWindow1
             if(window.innerWidth > 500) {
-                infoWindow = new T.InfoWindow(licontent, {minWidth:300});
+                infoWindow1 = new T.InfoWindow(licontent1, {minWidth:300});
             } else {
-                infoWindow = new T.InfoWindow(licontent, {minWidth:240});
+                infoWindow1 = new T.InfoWindow(licontent1, {minWidth:240});
             }
-            marker.openInfoWindow(infoWindow);
+            marker1.openInfoWindow(infoWindow1);
             // map.centerAndZoom(centerPoint,12);
             // 添加缩放控件
-            map.addControl(new T.Control.Zoom());
+            map1.addControl(new T.Control.Zoom());
         }
         
 </script>
 
-<script type="text/javascript" src="https://api.tianditu.gov.cn/api?v=4.0&tk=7141f531a5af146ff8645577092b84d7"></script>
+
 
 <style>
 .message-title{
