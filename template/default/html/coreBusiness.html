@@ -5,7 +5,7 @@
 <div class="core-business">
   <div class="container">
       {pboot:slide num=100 gid=7}
-                        <div class="core-business-item wow {slide:i % 2 == 1 ? 'animate-left' : 'animate-right'}" data-wow-duration="1s" data-wow-delay="{slide:i * 200}ms">
+                        <div id="[slide:title]" class="core-business-item wow {slide:i % 2 == 1 ? 'animate-left' : 'animate-right'}" data-wow-duration="1s" data-wow-delay="{slide:i * 200}ms">
                     <a href="[slide:link]" style="width: 100%;height: 100%;" target="_blank">
                       <img
                         src="[slide:src]"
@@ -15,6 +15,7 @@
                         style="height: 100%;"
                       />
                     </a>
+                    
                     <div class="core-business-item-content">
                       <p class="core-business-item-content-title wow fade-in-up" data-wow-duration="0.6s" data-wow-delay="{slide:i * 200 + 400}ms">[slide:title]</p>
                       <p class="core-business-item-content-subtitle wow fade-in-up" data-wow-duration="0.6s" data-wow-delay="{slide:i * 200 + 600}ms">[slide:subtitle]</p>
@@ -44,6 +45,47 @@
   </div>
       </div>
 
+      <script>
+var options = {
+  "全球核心业务":'globalCoreBusines',
+  "多式联运业务":'multimodalTranspo',
+  "跨境电商物流":'crossBorderLogist'
+};
+
+
+          function getUrlParams() {
+    const params = {};
+    const queryString = window.location.search.substring(1);
+    const pairs = queryString.split('&');
+    
+    for (let i = 0; i < pairs.length; i++) {
+      const pair = pairs[i].split('=');
+      if (pair.length === 2) {
+        params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+      }
+    }
+    
+    return params;
+  }
+    document.addEventListener('DOMContentLoaded', function() {
+    const params = getUrlParams();
+    console.log(params,params.office);
+    if (params.office) {
+      const targetId = params.office 
+      const targetElement = document.getElementById(targetId);
+      console.log(params.office,'office',targetElement);
+      // return
+      if (targetElement) {
+        // 平滑滚动到目标元素
+           const offsetTop = targetElement.offsetTop - 57;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+      }
+    }
+      });
+      </script>
 <style>
 .core-business{
 
