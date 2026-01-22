@@ -24,23 +24,22 @@
     {pboot:if({page:rows}>0)}
 	   <nav aria-label="page navigation" class="my-4">
 	     <div class="pagination justify-content-center">
-	     	<a class="page-item page-link" href="{page:index}">首页</a>
-	     	<a class="page-item page-link" href="{page:pre}">上一页</a>
+	     	<a class="page-item page-link" href="{page:index}">Home</a>
+	     	<a class="page-item page-link" href="{page:pre}">Previous</a>
 	      	{page:numbar}<!-- 数字条，小屏幕时自动隐藏-->
-	      	<a class="page-item page-link" href="{page:next}">下一页</a>
-	      	<a class="page-item page-link" href="{page:last}">尾页</a>
+	      	<a class="page-item page-link" href="{page:next}">Next</a>
+	      	<a class="page-item page-link" href="{page:last}">Last</a>
 	     </div>
 	   </nav>	
 	{else}
-	   	<div class="text-center my-5 text-secondary">未搜索到任何数据！</div>
-	{/pboot:if}
+	   	<div class="text-center my-5 text-secondary">No data found!</div>
     
      <!-- 搜索-->
      <form class="form-inline mb-5 justify-content-center" action="{pboot:scaction}"  method="get">
-		  <div class="form-group mx-sm-3 mb-2">
-		    <input type="text" name="keyword" class="form-control" placeholder="请输入关键字">
-		  </div>
-		  <button type="submit" class="btn btn-info mb-2">搜索</button>
+	  <div class="form-group mx-sm-3 mb-2">
+	    <input type="text" name="keyword" class="form-control" placeholder="Please enter keywords">
+	  </div>
+	  <button type="submit" class="btn btn-info mb-2">Search</button>
      </form>
 </div>
 

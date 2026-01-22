@@ -31,39 +31,39 @@
             <div style="display: grid;
   grid-template-columns: repeat(2, 1fr);gap: 30px;">
                   <div class="form-group">
-                    <label for="contacts">联系人<span style="color: red;">*</span></label>
+                    <label for="contacts">Contact Person<span style="color: red;">*</span></label>
                     <div>
-                        <input type="text" name="contacts" required id="contacts" class="form-control" placeholder="请输入联系人">
+                        <input type="text" name="contacts" required id="contacts" class="form-control" placeholder="Please enter contact person">
                     </div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="mobile">手机<span style="color: red;">*</span></label>
+                    <label for="mobile">Contact Phone<span style="color: red;">*</span></label>
                     <div>
-                        <input type="text" name="mobile" required id="mobile" class="form-control" placeholder="请输入联系人手机">
+                        <input type="text" name="mobile" required id="mobile" class="form-control" placeholder="Please enter contact phone">
                     </div>
                 </div>
   </div>
             
    <div class="form-group">
-                    <label for="content" >主题<span style="color: red;">*</span></label>
+                    <label for="content" >Subject<span style="color: red;">*</span></label>
                     <div>
-                        <input type="text" name="topic" required id="subject" class="form-control" placeholder="请输入主题">
+                        <input type="text" name="topic" required id="subject" class="form-control" placeholder="Please enter subject">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="content" >内容<span style="color: red;">*</span></label>
+                    <label for="content" >Message Content<span style="color: red;">*</span></label>
                     <div>
-                        <textarea name="content" id="content" class="form-control textarea" placeholder="请输入留言内容"></textarea>
+                        <textarea name="content" id="content" class="form-control textarea" placeholder="Please enter message content"></textarea>
                     </div>
                 </div>
                 
                 {pboot:if({pboot:msgcodestatus})}
                 <div class="form-group">
-                    <label for="checkcode">验证码</label>
+                    <label for="checkcode">Verification Code</label>
                     <div class="row">
                         <div class="col-10 col-md-3">
-                            <input type="text" name="checkcode" required id="checkcode" class="form-control" placeholder="请输入验证码">
+                            <input type="text" name="checkcode" required id="checkcode" class="form-control" placeholder="Please enter verification code">
                         </div>
                         <div class="col-2">
                             <img title="点击刷新" class="codeimg" style="height:39px;" src="{pboot:checkcode}" onclick="this.src='{pboot:checkcode}?'+Math.round(Math.random()*10);" />
@@ -73,7 +73,7 @@
                 {/pboot:if}
                 
                 <div class="form-group">
-                   <button type="submit" class="btn btn-info mb-2">提交留言</button>
+                   <button type="submit" class="btn btn-info mb-2">Submit Message</button>
                 </div>
             </form>
         </div>
@@ -107,19 +107,19 @@ function submsg(obj){
     },
     success: function (response, status) {
       if(response.code){
-		 alert("谢谢您的反馈，我们会尽快联系您！");
-		 $(obj)[0].reset(); 
+	 alert("Thank you for your feedback, we will contact you as soon as possible!");
+	 $(obj)[0].reset(); 
       }else{ 
-    	 if(response.tourl!=""){
-    		 if(confirm(response.data+'是否立即跳转登录？')){
-    			 location.href=response.tourl; 
+	 if(response.tourl!=""){
+	     if(confirm(response.data+'Do you want to jump to login immediately?')){
+		     location.href=response.tourl; 
    	   	     }
-    	 }
-    	 $('.codeimg').click();//更新验证码
+	 }
+	 $('.codeimg').click();//Update verification code
       }
     },
     error:function(xhr,status,error){
-      alert('返回数据异常！');
+      alert('Return data exception!');
     }
   });
   return false;

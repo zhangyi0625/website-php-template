@@ -9,15 +9,15 @@
               <p class="text-left">{pboot:companyname}</p>
     <p style="font-weight: 600;
 font-size: clamp(1rem, 2vw, 1.25rem);
-color: #333333;margin: 9px 0 18px;text-align: left;">前身为宁波雅戈尔国际海运二部是宁波雅戈尔的子公司</p>
+color: #333333;margin: 9px 0 18px;text-align: left;">Formerly known as Ningbo Youngor International Shipping Department 2, a subsidiary of Ningbo Youngor</p>
     <p style="font-weight: 400;
 font-size: clamp(0.8rem, 1.5vw, 1rem);
-color: #333333;text-align: left;">雅运坤洲是中国外经贸部批准的国家一级货运代理企业。经中国交通部批准，获得无船承运人资格，雅运坤洲以专业团队和高质量服务赢得了一大批客户的长期支持。公司现与20多家国际性船东建立了良好合作关系并开通了直接订舱代理，随时提供具有竞争力和专业化的品质服务。
+color: #333333;text-align: left;">Yayun Kunzhou is a national first-class freight forwarding enterprise approved by the Ministry of Foreign Trade and Economic Cooperation of China. Approved by the Ministry of Transport of China, it has obtained NVOCC qualification. Yayun Kunzhou has won long-term support from a large number of customers with its professional team and high-quality services. The company has established good cooperative relationships with more than 20 international shipping companies and opened direct booking agency services, providing competitive and professional quality services at any time.
 </p>
         </div>
   </div>
     <div class="slider-container1-item-right">
-        {pboot:slide num=4 gid=9}
+        {pboot:slide num=4 gid=19}
                     <img
                         src="[slide:src]"
                         class="slider-item-img1"
@@ -36,12 +36,12 @@ color: #333333;text-align: left;">雅运坤洲是中国外经贸部批准的国�
       <div class="container">
               <div>
         <p style="font-weight: 600;
-font-size: clamp(1.5rem, 3vw, 2rem);">服务宗旨</p>
+font-size: clamp(1.5rem, 3vw, 2rem);">Service Philosophy</p>
         <p style="font-weight: 400;
-font-size: clamp(0.8rem, 1.5vw, 1rem);margin-bottom: 40px;">专业、高效、及时，始终如一</p>
+font-size: clamp(0.8rem, 1.5vw, 1rem);margin-bottom: 40px;">Professional, Efficient, Timely, Consistent</p>
       </div>
             <div class="slider-container2-grid">
-                    {pboot:slide num=100 gid=3}
+                    {pboot:slide num=100 gid=13}
               <div class="slider-container2-item">
                 <img src="[slide:src]" width="36" height="36" alt="">
                 <p style="font-weight: 600;
@@ -63,12 +63,12 @@ color: #FFFFFF;">[slide:subtitle]</p>
       <div class="container">
               <div>
         <p style="font-weight: 600;
-font-size: clamp(1.25rem, 2.5vw, 1.75rem);">公司荣誉</p>
+font-size: clamp(1.25rem, 2.5vw, 1.75rem);">Company Honors</p>
         <p style="font-weight: 400;
-font-size: clamp(0.7rem, 1.2vw, 0.85rem);margin-bottom: 40px;">实力见证，信任之选</p>
+font-size: clamp(0.7rem, 1.2vw, 0.85rem);margin-bottom: 40px;">Strength Witness, Trusted Choice</p>
       </div>
             <div class="slider-container3-grid">
-      {pboot:slide num=100 gid=2}
+      {pboot:slide num=100 gid=12}
                         <div class="slider-item">
                     <a href="[slide:link]" style="width: 100%;" target="_blank">
                       <img
@@ -89,12 +89,12 @@ font-size: clamp(0.7rem, 1.2vw, 0.85rem);margin-bottom: 40px;">实力见证，�
           <div class="container">
                   <div>
         <p style="font-weight: 600;
-font-size: clamp(1.25rem, 2.5vw, 1.75rem);">团队风采</p>
+font-size: clamp(1.25rem, 2.5vw, 1.75rem);">Team Showcase</p>
         <p style="font-weight: 400;
-font-size: clamp(0.7rem, 1.2vw, 0.85rem);margin-bottom: 40px;">以专业成就客户，以协同定义未来</p>
+font-size: clamp(0.7rem, 1.2vw, 0.85rem);margin-bottom: 40px;">Achieving Customer Success with Professionalism, Defining the Future through Collaboration</p>
       </div>
             <div class="slider-container4-grid">
-      {pboot:slide num=100 gid=10}
+      {pboot:slide num=100 gid=20}
                         <div class="slider-item">
                     <a href="[slide:link]" style="width: 100%;height: 100%;" target="_blank">
                       <img
@@ -440,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const params = getUrlParams();
     // 检查是否有跳转到特定部分的参数，例如 ?office=工作机会
     if (params.office) {
-      const targetId = params.office === '公司简介' ? 'company-introduction' : params.office === '服务宗旨' ? 'service-purpose' : params.office === '团队风采' ? 'team-showcase' : params.office === '公司荣誉' ? 'company-honors' : null;
+      const targetId = params.office === 'company profile' ? 'company-introduction' : params.office === 'service aim' ? 'service-purpose' : params.office === 'team mien' ? 'team-showcase' : params.office === 'glories of company' ? 'company-honors' : null;
       const targetElement = document.getElementById(targetId);
       
       if (targetElement) {

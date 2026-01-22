@@ -11,7 +11,7 @@
           <div class="row">
            		<!-- <div class="col-12 col-sm-2 col-md-1">类型：</div> -->
                 <div class="col-12 col-sm-10 col-md-11">
-                   {pboot:selectall field=ext_type text=全部  class='mb-3 btn btn-light' active='mb-3 btn btn-info'}
+                   {pboot:selectall field=ext_type text=All  class='mb-3 btn btn-light' active='mb-3 btn btn-info'}
                    {pboot:select field=ext_type}
                        <a href= "[select:link]" class="mb-3 btn {pboot:if('[select:value]'=='[select:current]')}btn-info{else}btn-light{/pboot:if}">[select:value]</a>  
                    {/pboot:select}
@@ -39,13 +39,13 @@
                     <h5 class="card-title"><a href="[list:link]">[list:title lencn=12]</a></h5>
                     <p class="card-text">
                     {pboot:if([list:istop]==1)}
-                		<span class="badge badge-danger">置顶</span>
+                		<span class="badge badge-danger">Top</span>
                 	{/pboot:if}
                 	{pboot:if([list:isrecommend]==1)}
-                		<span class="badge badge-warning">推荐</span>
+                		<span class="badge badge-warning">Recommended</span>
                 	{/pboot:if}
                 	{pboot:if([list:isheadline]==1)}
-                		<span class="badge badge-info">头条</span>
+                		<span class="badge badge-info">Headline</span>
                 	{/pboot:if}
                 	[list:content drophtml=1 dropblank=1 lencn=50]
                 	</p>

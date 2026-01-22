@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh">
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<title>{pboot:pagetitle}</title>
@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 根据 URL 路径设置导航菜单的选中状态
     const currentPath = window.location.pathname;
-    if (currentPath.includes('newsInformation')) {
+    if (currentPath.includes('news')) {
         let extType = '';
         if (currentPath.includes('info')) {
             extType = '公司新闻';
@@ -371,17 +371,16 @@ document.addEventListener('DOMContentLoaded', function() {
     animateOnScroll();
 });
 function scrollToOffice(officeName, parentLink) {
-    console.log('officeName:', officeName, 'parentLink:', parentLink);
-    
+    console.log('officeName:', officeName, 'parentLink::::', parentLink);
     // 处理公司新闻和行业资讯的导航
-    if (officeName === '公司新闻' || officeName === '行业资讯') {
+    if (officeName === 'Company News' || officeName === 'Industry News') {
         // 判断是否需要跳转到新闻资讯页面
-        if (!window.location.href.includes('newsInformation')) {
+        if (!window.location.href.includes('news')) {
             // 跳转到新闻资讯页面，根据类型使用不同的路径
             let newsUrl = '';
-            if (officeName === '公司新闻') {
+            if (officeName === 'Company News') {
                 newsUrl = parentLink + 'info/';
-            } else if (officeName === '行业资讯') {
+            } else if (officeName === 'Industry News') {
                 newsUrl = parentLink + 'msg/';
             }
             console.log('跳转到新闻资讯页面:', newsUrl);
@@ -396,9 +395,9 @@ function scrollToOffice(officeName, parentLink) {
                 // 直接跳转到 tab 链接，而不是模拟点击
                 window.location.href = targetTab.getAttribute('href');
             }else {
-              if(officeName === '公司新闻') {
+              if(officeName === 'Company News') {
                 window.location.href = parentLink + 'info/';
-              } else if (officeName === '行业资讯') {
+              } else if (officeName === 'Industry News') {
                 window.location.href = parentLink + 'msg/';
               }
             }            
@@ -414,34 +413,36 @@ function scrollToOffice(officeName, parentLink) {
         return;
     }
     
+    console.log('officeName:', officeName);
+    
     // 在当前页面，根据公司名称确定对应的id
     let targetId = '';
-    if (officeName.includes('宁波')) {
+    if (officeName.includes('Head Office in Ningbo')) {
         targetId = 'ningbo';
-    } else if (officeName.includes('广州')) {
+    } else if (officeName.includes('Branch Company in Guangzhou')) {
         targetId = 'guangzhou';
-    } else if (officeName.includes('孟加拉')) {
+    } else if (officeName.includes('Bangladesh Branch')) {
         targetId = 'bangladesh';
-    } else if (officeName.includes('服务宗旨')) {
+    } else if (officeName.includes('service aim')) {
         targetId = 'service-purpose';
-    } else if (officeName.includes('公司荣誉')) {
+    } else if (officeName.includes('glories of company')) {
         targetId = 'company-honors';
-    } else if (officeName.includes('团队风采')) {
+    } else if (officeName.includes('team mien')) {
         targetId = 'team-showcase';
-    } else if (officeName.includes('公司简介')) {
+    } else if (officeName.includes('company profile')) {
         targetId = 'company-introduction';
-    } else if (officeName.includes('公司环境')) {
+    } else if (officeName.includes('corporate environment')) {
         targetId = 'join-us2';
-    } else if (officeName.includes('工作机会')) {
+    } else if (officeName.includes('job opportunity')) {
         targetId = 'job-opportunities';
-    } else if (officeName.includes('联系我们')) {
+    } else if (officeName.includes('contact')) {
         targetId = 'contact-us';
-    }else if (officeName.includes('全球海运业务')) {
-        targetId = '全球海运业务';
-    }else if (officeName.includes('多式联运业务')) {
-        targetId = '多式联运业务';
-    }else if (officeName.includes('跨境电商物流')) {
-        targetId = '跨境电商物流';
+    }else if (officeName.includes('Global maritime shipping business')) {
+        targetId = 'Global maritime shipping business';
+    }else if (officeName.includes('Multimodal transport business')) {
+        targetId = 'Multimodal transport business';
+    }else if (officeName.includes('Cross-border e-commerce logistics')) {
+        targetId = 'Cross-border e-commerce logistics';
     }
     
     if (targetId) {
@@ -473,7 +474,7 @@ function scrollToOffice(officeName, parentLink) {
 	    <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="white-space: nowrap;">
 	        <ul class="navbar-nav">
 	       	  <li class="nav-item {pboot:if(0=='{sort:scode}')}active{/pboot:if}">
-				 <a class="nav-link" href="{pboot:sitepath}/" >首页</a>
+				 <a class="nav-link" href="{pboot:sitepath}/" >Home</a>
 	          </li>
 	          <!-- {pboot:nav num=10 parent=0}
 	              <li class="nav-item {pboot:if('[nav:scode]'=='{sort:tcode}')}active{/pboot:if}">
@@ -503,8 +504,8 @@ function scrollToOffice(officeName, parentLink) {
                     <li class="nav-items">
           <div class="language-selector" style="position: relative;">
             <button type="button" class="nav-link" style="display: flex;align-items: center;border: none;background: none;padding: 0.5rem 1rem;">
-              <img src="{pboot:sitepath}/static/upload/image/cn.gif" alt="" style="width: 20px;">
-              &nbsp;多语言 <i class="fa fa-caret-down" style="margin-left: 5px; font-size: 12px;"></i>
+              <img src="{pboot:sitepath}/static/upload/image/en.gif" alt="" style="width: 20px;">
+              &nbsp;Language <i class="fa fa-caret-down" style="margin-left: 5px; font-size: 12px;"></i>
             </button>
             <div class="language-dropdown" style="position: absolute;top: 100%;right: 0;background: white;border: 1px solid #ddd;border-radius: 4px;box-shadow: 0 2px 4px rgba(0,0,0,0.1);z-index: 1000;min-width: 120px;display: none;">
               <a href="{pboot:lgpath}&lg=cn" style="display: block;padding: 0.5rem 1rem;text-decoration: none;color: #333;border-bottom: 1px solid #f0f0f0;text-align: center;">

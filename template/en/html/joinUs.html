@@ -7,13 +7,13 @@
 <div class="container">
   <p style="font-weight: 600;
 font-size: clamp(1.8rem, 4.5vw, 2.3125rem);
-color: #333333;">为什么选择我们？</p>
+color: #333333;">Why Choose Us?</p>
 <p style="font-weight: 400;
 font-size: clamp(0.9rem, 2.2vw, 1.25rem);
-color: #333333;margin-top: 5px;">我们为您提供的不仅仅是一份工作，更是一个实现梦想的舞台</p>
+color: #333333;margin-top: 5px;">We offer you not just a job, but a stage to realize your dreams</p>
 
             <div class="join-us1-grid">
-      {pboot:slide num=100 gid=4}
+      {pboot:slide num=100 gid=14}
                         <div class="join-us1-item">
                     <a href="[slide:link]" style="width: 100%;" target="_blank">
                       <img
@@ -34,12 +34,12 @@ color: #333333;margin-top: 5px;">我们为您提供的不仅仅是一份工作�
         <div class="container">
           <p style="font-weight: 600;
 font-size: clamp(1.8rem, 4.5vw, 2.3125rem);
-color: #333333;">公司环境</p>
+color: #333333;">Company Environment</p>
 <p style="font-weight: 400;
 font-size: clamp(0.9rem, 2.2vw, 1.25rem);
-color: #333333;margin-top: 5px;">在这里，工作与价值共同生长</p>
+color: #333333;margin-top: 5px;">Here, work and value grow together</p>
             <div class="join-us2-grid">
-      {pboot:slide num=100 gid=5}
+      {pboot:slide num=100 gid=15}
                         <div class="join-us2-item">
                     <a href="[slide:link]" style="width: 100%;height: 100%;" target="_blank">
                       <img
@@ -57,10 +57,10 @@ color: #333333;margin-top: 5px;">在这里，工作与价值共同生长</p>
         <div class="container">
                   <p style="font-weight: 600;
 font-size: clamp(1.8rem, 4.5vw, 2.3125rem);
-">工作机会</p>
+">Job Opportunities</p>
 <p style="font-weight: 400;
 font-size: clamp(0.9rem, 2.2vw, 1.25rem);
-margin-top: 5px;">寻找志同道合的你</p>
+margin-top: 5px;">Looking for like-minded individuals</p>
 <div class="join-us3-grid">
         {pboot:list num=12 order=date}
         <div class="join-us3-item">
@@ -89,7 +89,7 @@ color: #21A29D;">
                   <div style="display: flex;align-items: flex-start;flex-direction: column;">
                                       <p style="font-weight: 600;
 font-size: clamp(1.8rem, 4.5vw, 2.3125rem);
-color: #333333;">联系我们</p>
+color: #333333;">Contact Us</p>
 <div style="font-size: clamp(0.9rem, 2.2vw, 1.25rem);">
                       <div style="margin-top: 18px;"><img src="{pboot:sitetplpath}/images/address.png" width="18" height="18" style="margin-right: 12px;" alt="">{pboot:companyaddress} </div>
                     <div style="margin-top: 18px;"><img src="{pboot:sitetplpath}/images/phone.png" width="18" height="18" style="margin-right: 12px;" alt="">{pboot:companyphone}<span style="margin-left: 10px;">{pboot:companyfax}</span></div>
@@ -361,11 +361,11 @@ color: #333333;">联系我们</p>
     // 检查是否有跳转到特定部分的参数，例如 ?office=工作机会
     if (params.office) {
       let targetId = '';
-      if (params.office === '工作机会') {
+      if (params.office === 'corporate environment') {
         targetId = 'job-opportunities';
-      } else if (params.office === '公司环境') {
+      } else if (params.office === 'job opportunity') {
         targetId = 'join-us2';
-      } else if (params.office === '联系我们') {
+      } else if (params.office === 'contact') {
         targetId = 'contact-us';
       }
       

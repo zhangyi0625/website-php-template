@@ -6,7 +6,7 @@
 
     <h2 class="text-center fs-sm-28 fs-20 mt-3">{content:title}</h2>
     <div class="text-center border-bottom text-secondary pb-2 mb-3">
-    	  时间：{content:date style=Y-m-d}&nbsp;&nbsp;&nbsp;访问量：{content:visits operate=+1000}
+    	  Date：{content:date style=Y-m-d}&nbsp;&nbsp;&nbsp;Views：{content:visits operate=+1000}
     </div>
 	<div class="content mb-3">{content:content}</div>
       <div class="text-secondary lh-2 newsInformationDetail-preNext">
@@ -14,10 +14,10 @@
 				<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: #21A29D; margin-right: 12px;">
 					<path d="M12 12L4 8L12 4" stroke="#21A29D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				</svg>
-				上一篇：{content:precontent}
+				Previous：{content:precontent}
 			</p>
 			<p style="display: flex; align-items: center;">
-				下一篇：{content:nextcontent}
+				Next：{content:nextcontent}
 				<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: #21A29D; margin-left: 12px;">
 					<path d="M4 12L12 8L4 4" stroke="#21A29D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				</svg>
