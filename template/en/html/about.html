@@ -440,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const params = getUrlParams();
     // 检查是否有跳转到特定部分的参数，例如 ?office=工作机会
     if (params.office) {
-      const targetId = params.office === 'company profile' ? 'company-introduction' : params.office === 'service aim' ? 'service-purpose' : params.office === 'team mien' ? 'team-showcase' : params.office === 'glories of company' ? 'company-honors' : null;
+      const targetId = params.office === ' Company Profile' ? 'company-introduction' : params.office === 'Service Tenet' ? 'service-purpose' : params.office === 'Team Style' ? 'team-showcase' : params.office === 'Honors' ? 'company-honors' : null;
       const targetElement = document.getElementById(targetId);
       
       if (targetElement) {

@@ -118,7 +118,7 @@ Our service scope includes sea freight services, air freight services, warehousi
     const params = getUrlParams();
     // 检查是否有跳转到特定部分的参数，例如 ?office=工作机会
     if (params.office) {
-      const targetId = params.office === 'Head Office in Ningbo' ? 'ningbo' : params.office === 'Branch Company in Guangzhou' ? 'guangzhou' : params.office === 'Bangladesh Branch' ? 'bangladesh' : null;
+      const targetId = params.office === 'Ningbo Headoffice' ? 'ningbo' : params.office === 'Guangzhou Branch' ? 'guangzhou' : params.office === 'Bangladesh Branch' ? 'bangladesh' : null;
       const targetElement = document.getElementById(targetId);
       
       if (targetElement) {

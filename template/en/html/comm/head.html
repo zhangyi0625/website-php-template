@@ -417,32 +417,32 @@ function scrollToOffice(officeName, parentLink) {
     
     // 在当前页面，根据公司名称确定对应的id
     let targetId = '';
-    if (officeName.includes('Head Office in Ningbo')) {
+    if (officeName.includes('Ningbo Headoffice')) {
         targetId = 'ningbo';
-    } else if (officeName.includes('Branch Company in Guangzhou')) {
+    } else if (officeName.includes('Guangzhou Branch')) {
         targetId = 'guangzhou';
     } else if (officeName.includes('Bangladesh Branch')) {
         targetId = 'bangladesh';
-    } else if (officeName.includes('service aim')) {
+    } else if (officeName.includes('Service Tenet')) {
         targetId = 'service-purpose';
-    } else if (officeName.includes('glories of company')) {
+    } else if (officeName.includes('Honors')) {
         targetId = 'company-honors';
-    } else if (officeName.includes('team mien')) {
+    } else if (officeName.includes('Team Style')) {
         targetId = 'team-showcase';
-    } else if (officeName.includes('company profile')) {
+    } else if (officeName.includes('Company Profile')) {
         targetId = 'company-introduction';
-    } else if (officeName.includes('corporate environment')) {
+    } else if (officeName.includes('Working Environment')) {
         targetId = 'join-us2';
-    } else if (officeName.includes('job opportunity')) {
+    } else if (officeName.includes('Job Opportunity')) {
         targetId = 'job-opportunities';
     } else if (officeName.includes('contact')) {
         targetId = 'contact-us';
-    }else if (officeName.includes('Global maritime shipping business')) {
-        targetId = 'Global maritime shipping business';
-    }else if (officeName.includes('Multimodal transport business')) {
-        targetId = 'Multimodal transport business';
-    }else if (officeName.includes('Cross-border e-commerce logistics')) {
-        targetId = 'Cross-border e-commerce logistics';
+    }else if (officeName.includes('Global Ocean Freight')) {
+        targetId = 'Global Ocean Freight';
+    }else if (officeName.includes(' Multimodal Transport')) {
+        targetId = ' Multimodal Transport';
+    }else if (officeName.includes('Cross-border Logistics')) {
+        targetId = 'Cross-border Logistics';
     }
     
     if (targetId) {
