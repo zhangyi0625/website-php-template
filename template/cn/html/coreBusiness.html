@@ -3,22 +3,25 @@
 {include file=comm/top1.html}
 
 <div class="core-business">
+  <div class="container">
       {pboot:slide num=100 gid=7}
-                        <div class="core-business-item wow {slide:i % 2 == 1 ? 'animate-left' : 'animate-right'}" data-wow-duration="1s" data-wow-delay="{slide:i * 200}ms">
+                        <div id="[slide:title]" class="core-business-item wow {slide:i % 2 == 1 ? 'animate-left' : 'animate-right'}" data-wow-duration="1s" data-wow-delay="{slide:i * 200}ms">
                     <a href="[slide:link]" style="width: 100%;height: 100%;" target="_blank">
                       <img
                         src="[slide:src]"
                         class="core-business-item-img wow {slide:i % 2 == 1 ? 'zoom-in' : 'zoom-in-reverse'}"
                         data-wow-duration="0.8s"
                         data-wow-delay="{slide:i * 200 + 200}ms"
+                        style="height: 100%;"
                       />
                     </a>
+                    
                     <div class="core-business-item-content">
                       <p class="core-business-item-content-title wow fade-in-up" data-wow-duration="0.6s" data-wow-delay="{slide:i * 200 + 400}ms">[slide:title]</p>
                       <p class="core-business-item-content-subtitle wow fade-in-up" data-wow-duration="0.6s" data-wow-delay="{slide:i * 200 + 600}ms">[slide:subtitle]</p>
                       <div class="core-business-item-tags">
                         {pboot:if([slide:i] == 1)}
-                          <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 800}ms">时基API服务</span>
+                          <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 800}ms">0时差AI服务</span>
                           <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 900}ms">中国8大口岸直航</span>
                           <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 1000}ms">东南亚双清专线</span>
                           <span class="tag-item wow fade-in-up" data-wow-duration="0.5s" data-wow-delay="{slide:i * 200 + 1100}ms">船东直采资源</span>
@@ -39,8 +42,50 @@
                     </div>
                 </div>
       {/pboot:slide}
+  </div>
       </div>
 
+      <script>
+var options = {
+  "全球核心业务":'globalCoreBusines',
+  "多式联运业务":'multimodalTranspo',
+  "跨境电商物流":'crossBorderLogist'
+};
+
+
+          function getUrlParams() {
+    const params = {};
+    const queryString = window.location.search.substring(1);
+    const pairs = queryString.split('&');
+    
+    for (let i = 0; i < pairs.length; i++) {
+      const pair = pairs[i].split('=');
+      if (pair.length === 2) {
+        params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+      }
+    }
+    
+    return params;
+  }
+    document.addEventListener('DOMContentLoaded', function() {
+    const params = getUrlParams();
+    console.log(params,params.office);
+    if (params.office) {
+      const targetId = params.office 
+      const targetElement = document.getElementById(targetId);
+      console.log(params.office,'office',targetElement);
+      // return
+      if (targetElement) {
+        // 平滑滚动到目标元素
+           const offsetTop = targetElement.offsetTop - 57;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+      }
+    }
+      });
+      </script>
 <style>
 .core-business{
 
@@ -50,7 +95,7 @@
   display: flex;
   align-items: center;
   background: #fff;
-  padding: clamp(3rem, 8vw, 4.5rem) clamp(5rem, 15vw, 6.8rem);
+  padding: clamp(3rem, 8vw, 4.5rem) 0;
   height: fit-content;
   width: 100%;
   column-gap: clamp(2rem, 5vw, 3.5rem);
@@ -72,16 +117,21 @@
   transform: scale(1.05);
 }
 
+
+.core-business-item-content{
+  max-width: 330px;
+}
+
 .core-business-item-content-title{
   font-weight: 600;
-  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-size: clamp(1.5rem, 4vw, 2.3125rem);
   color: #333333;
   line-height: 1.3;
 }
 
 .core-business-item-content-subtitle{
   font-weight: 400;
-  font-size: clamp(0.8rem, 1.6vw, 0.9rem);
+  font-size: clamp(0.9rem, 2.2vw, 1.25rem);
   color: #333333;
   margin: clamp(1.5rem, 4vw, 1.7rem) 0 clamp(0.8rem, 1.6vw, 0.9rem);
   line-height: 1.6;
@@ -92,13 +142,14 @@
   grid-template-columns: repeat(2, 1fr);
   gap: clamp(1rem, 2.5vw, 1.25rem);
   margin-top: clamp(1.5rem, 4vw, 1.7rem);
+  font-size: clamp(0.7rem, 1.5vw, 1rem) !important;
 }
 
 .tag-item{
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: clamp(0.6rem, 1.2vw, 0.7rem);
+  font-size: clamp(0.7rem, 1.5vw, 1rem);
   color: #21A29D;
   font-weight: 400;
 }
@@ -200,6 +251,10 @@
       justify-content: center;
       text-align: center;
   }
+  .core-business-item-content{
+    margin-top: clamp(1.5rem, 4vw, 1.7rem);
+    max-width: 330px;
+  }
   .core-business-item:nth-child(2n){
     flex-direction: column;
   }
@@ -275,16 +330,19 @@
 /* 超大屏幕优化 */
 @media screen and (min-width: 1200px) {
   .core-business-item{
-      padding: 72px 108px;
+      /* padding: 72px 108px; */
   }
   .core-business-item-img{
     height: 303px;
   }
+  .core-business-item-content{
+    max-width: 530px;
+  }
   .core-business-item-content-title{
-    font-size: 24px;
+    font-size: 37px;
   }
   .core-business-item-content-subtitle{
-    font-size: 14px;
+    font-size: 20px;
     margin: 27px 0 14px;
   }
   .core-business-item-tags{
@@ -292,7 +350,7 @@
     margin-top: 27px;
   }
   .tag-item{
-    font-size: 11px;
+    font-size: 16px;
   }
 }
 

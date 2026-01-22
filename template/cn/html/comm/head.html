@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="{pboot:sitetplpath}/css/custom.css">
 	<link rel="shortcut icon" href="{pboot:sitepath}/favicon.ico" type="image/x-icon">
 	<script src="{pboot:sitetplpath}/js/jquery-1.12.4.min.js" ></script>
+	<script type="text/javascript" src="https://api.tianditu.gov.cn/api?v=4.0&tk=7141f531a5af146ff8645577092b84d7"></script>
 </head>
 <body>
   <style>
@@ -24,6 +25,13 @@
     position: relative;
 }
 
+.nav-link{
+  color: #333333 !important;
+}
+.shadow-sm{
+  background: #fff !important; 
+}
+
 .navbar-nav > .nav-item.active > .nav-link::after,
 .navbar-nav > .nav-item:hover > .nav-link::after {
     content: '';
@@ -31,7 +39,8 @@
     bottom: -5px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60%;
+    /* width: 60%; */
+    width: 80%;
     height: 2px;
     background-color: #21A29D;
     border-radius: 1px;
@@ -91,7 +100,7 @@
     display: block;
     padding: 12px 20px;
     color: #333;
-    font-size: 20px;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     font-weight: 600;
     transition: all 0.3s ease;
     border-bottom: 1px solid #f5f5f5;
@@ -129,6 +138,12 @@
         box-shadow: none;
         border-top: 1px solid #eee;
     }
+
+    /* .navbar-nav > .nav-item.active > .nav-link::after,
+.navbar-nav > .nav-item:hover > .nav-link::after {
+display: none;
+}
+     */
     
     .sub-menu::before {
         display: none;
@@ -136,7 +151,7 @@
     
     .sub-menu li a {
         padding: 10px 15px;
-        font-size: 18px;
+        font-size: clamp(0.9rem, 1.8vw, 1.125rem);
         text-align: left;
         border-bottom: 1px solid #f0f0f0;
     }
@@ -380,7 +395,13 @@ function scrollToOffice(officeName, parentLink) {
             if (targetTab) {
                 // 直接跳转到 tab 链接，而不是模拟点击
                 window.location.href = targetTab.getAttribute('href');
-            }
+            }else {
+              if(officeName === '公司新闻') {
+                window.location.href = parentLink + 'info/';
+              } else if (officeName === '行业资讯') {
+                window.location.href = parentLink + 'msg/';
+              }
+            }            
             return;
         }
     }
@@ -389,7 +410,6 @@ function scrollToOffice(officeName, parentLink) {
     if (parentLink && !window.location.href.includes(parentLink.replace(/^.*?(\/[^\/]*).*$/, '$1'))) {
         // 构建跳转URL，添加哈希值
         const targetUrl = parentLink + (parentLink.includes('?') ? '&' : '?') + 'office=' + encodeURIComponent(officeName);
-        console.log('跳转URL:', targetUrl);
         window.location.href = targetUrl;
         return;
     }
@@ -408,12 +428,20 @@ function scrollToOffice(officeName, parentLink) {
         targetId = 'company-honors';
     } else if (officeName.includes('团队风采')) {
         targetId = 'team-showcase';
-    } else if (officeName.includes('公司介绍')) {
+    } else if (officeName.includes('公司简介')) {
         targetId = 'company-introduction';
     } else if (officeName.includes('公司环境')) {
         targetId = 'join-us2';
     } else if (officeName.includes('工作机会')) {
         targetId = 'job-opportunities';
+    } else if (officeName.includes('联系我们')) {
+        targetId = 'contact-us';
+    }else if (officeName.includes('全球海运业务')) {
+        targetId = '全球海运业务';
+    }else if (officeName.includes('多式联运业务')) {
+        targetId = '多式联运业务';
+    }else if (officeName.includes('跨境电商物流')) {
+        targetId = '跨境电商物流';
     }
     
     if (targetId) {
@@ -426,6 +454,7 @@ function scrollToOffice(officeName, parentLink) {
                 behavior: 'smooth'
             });
         }
+        console.log(targetId,'targetId',targetElement);
     }
 }
 </script>
@@ -441,7 +470,7 @@ function scrollToOffice(officeName, parentLink) {
 	    	<span class="navbar-toggler-icon"></span>
 	    </button>
 	    
-	    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+	    <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="white-space: nowrap;">
 	        <ul class="navbar-nav">
 	       	  <li class="nav-item {pboot:if(0=='{sort:scode}')}active{/pboot:if}">
 				 <a class="nav-link" href="{pboot:sitepath}/" >首页</a>
@@ -471,16 +500,43 @@ function scrollToOffice(officeName, parentLink) {
 {/pboot:nav}
             
 
-                    <!-- <li class="nav-item">
-          <a class="nav-link" href="{pboot:lgpath}&lg=cn">
-            <i class="bi bi-globe-asia-australia"></i>&nbsp;中文
-          </a>
+                    <li class="nav-items">
+          <div class="language-selector" style="position: relative;">
+            <button type="button" class="nav-link" style="display: flex;align-items: center;border: none;background: none;padding: 0.5rem 1rem;">
+              <img src="{pboot:sitepath}/static/upload/image/cn.gif" alt="" style="width: 20px;">
+              &nbsp;多语言 <i class="fa fa-caret-down" style="margin-left: 5px; font-size: 12px;"></i>
+            </button>
+            <div class="language-dropdown" style="position: absolute;top: 100%;right: 0;background: white;border: 1px solid #ddd;border-radius: 4px;box-shadow: 0 2px 4px rgba(0,0,0,0.1);z-index: 1000;min-width: 120px;display: none;">
+              <a href="{pboot:lgpath}&lg=cn" style="display: block;padding: 0.5rem 1rem;text-decoration: none;color: #333;border-bottom: 1px solid #f0f0f0;text-align: center;">
+                <!-- <img src="{pboot:sitepath}/static/upload/image/cn.gif" alt="" style="width: 16px;margin-right: 8px;"> -->
+                中文
+              </a>
+              <a href="{pboot:lgpath}&lg=en" style="display: block;padding: 0.5rem 1rem;text-decoration: none;color: #333;text-align: center;">
+                <!-- <img src="{pboot:sitepath}/static/upload/image/en.gif" alt="" style="width: 16px;margin-right: 8px;"> -->
+                English
+              </a>
+            </div>
+          </div>
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const selector = document.querySelector('.language-selector');
+              const button = selector.querySelector('button');
+              const dropdown = selector.querySelector('.language-dropdown');
+              
+              button.addEventListener('click', function(e) {
+                e.preventDefault();
+                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+              });
+              
+              // 点击其他地方关闭下拉菜单
+              document.addEventListener('click', function(e) {
+                if (!selector.contains(e.target)) {
+                  dropdown.style.display = 'none';
+                }
+              });
+            });
+          </script>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{pboot:lgpath}&lg=en">
-            <i class="bi bi-globe-asia-australia"></i>&nbsp;English
-          </a>
-        </li> -->
 	      </ul>
 	      
 	      <!-- <span class="navbar-text">

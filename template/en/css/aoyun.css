@@ -158,6 +158,7 @@ a.page-num:hover, .page-link:hover {
 /*其他*/
 .pages {
 	min-height: 500px;
+  /* min-height: fit-content; */
 	padding-top: 10px;
 	padding-bottom: 10px;
 }

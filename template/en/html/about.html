@@ -2,62 +2,70 @@
 
 {include file=comm/top5.html}
 <div class="slider-container3 slider-container4 slider-container1 fade-in-left" id="company-introduction">
-  <div style="display: flex;align-items: center;">
+  <div class="container">
+      <div style="display: flex;align-items: center;">
       <div class="slider-container1-item-left">
-    <p class="text-left">{pboot:companyname}</p>
+        <div style="max-width: 580px;">
+              <p class="text-left">{pboot:companyname}</p>
     <p style="font-weight: 600;
-font-size: 14px;
+font-size: clamp(1rem, 2vw, 1.25rem);
 color: #333333;margin: 9px 0 18px;text-align: left;">前身为宁波雅戈尔国际海运二部是宁波雅戈尔的子公司</p>
     <p style="font-weight: 400;
-font-size: 11px;
+font-size: clamp(0.8rem, 1.5vw, 1rem);
 color: #333333;text-align: left;">雅运坤洲是中国外经贸部批准的国家一级货运代理企业。经中国交通部批准，获得无船承运人资格，雅运坤洲以专业团队和高质量服务赢得了一大批客户的长期支持。公司现与20多家国际性船东建立了良好合作关系并开通了直接订舱代理，随时提供具有竞争力和专业化的品质服务。
 </p>
+        </div>
   </div>
     <div class="slider-container1-item-right">
-        {pboot:slide num=4 gid=2}
+        {pboot:slide num=4 gid=9}
                     <img
                         src="[slide:src]"
                         class="slider-item-img1"
                         width="316"
                         height="169"
+                        style="object-fit: cover"
                       />
                         {/pboot:slide}
+  </div>
   </div>
   </div>
 </div>
 
 
      <div class="slider-container2 fade-in-up" id="service-purpose">
-      <div>
+      <div class="container">
+              <div>
         <p style="font-weight: 600;
-font-size: 20px;">服务宗旨</p>
+font-size: clamp(1.5rem, 3vw, 2rem);">服务宗旨</p>
         <p style="font-weight: 400;
-font-size: 11px;margin-bottom: 40px;">专业、高效、及时，始终如一</p>
+font-size: clamp(0.8rem, 1.5vw, 1rem);margin-bottom: 40px;">专业、高效、及时，始终如一</p>
       </div>
             <div class="slider-container2-grid">
                     {pboot:slide num=100 gid=3}
               <div class="slider-container2-item">
                 <img src="[slide:src]" width="36" height="36" alt="">
                 <p style="font-weight: 600;
-font-size: 14px;
+font-size: clamp(1rem, 2vw, 1.25rem);
 color: #91E9E0;margin: 14px 0 6px;">[slide:title]</p>
                 <p style="font-weight: 400;
-font-size: 10px;text-align: left;
+font-size: clamp(0.75rem, 1.2vw, 0.875rem);text-align: left;
 color: #FFFFFF;">[slide:subtitle]</p>
               </div>
       
       {/pboot:slide}
               </div>
+      </div>
               </div>
 
 
 
      <div class="slider-container3 fade-in-scale" id="company-honors">
-      <div>
+      <div class="container">
+              <div>
         <p style="font-weight: 600;
-font-size: 20px;">公司荣誉</p>
+font-size: clamp(1.25rem, 2.5vw, 1.75rem);">公司荣誉</p>
         <p style="font-weight: 400;
-font-size: 11px;margin-bottom: 40px;">实力见证，信任之选</p>
+font-size: clamp(0.7rem, 1.2vw, 0.85rem);margin-bottom: 40px;">实力见证，信任之选</p>
       </div>
             <div class="slider-container3-grid">
       {pboot:slide num=100 gid=2}
@@ -73,20 +81,22 @@ font-size: 11px;margin-bottom: 40px;">实力见证，信任之选</p>
       
       {/pboot:slide}
       </div>
+      </div>
     </div>
 
 
          <div class="slider-container3 slider-container4 fade-in-rotate" id="team-showcase">
-      <div>
+          <div class="container">
+                  <div>
         <p style="font-weight: 600;
-font-size: 20px;">团队风采</p>
+font-size: clamp(1.25rem, 2.5vw, 1.75rem);">团队风采</p>
         <p style="font-weight: 400;
-font-size: 11px;margin-bottom: 40px;">以专业成就客户，以协同定义未来</p>
+font-size: clamp(0.7rem, 1.2vw, 0.85rem);margin-bottom: 40px;">以专业成就客户，以协同定义未来</p>
       </div>
             <div class="slider-container4-grid">
-      {pboot:slide num=100 gid=2}
+      {pboot:slide num=100 gid=10}
                         <div class="slider-item">
-                    <a href="[slide:link]" style="width: 100%;" target="_blank">
+                    <a href="[slide:link]" style="width: 100%;height: 100%;" target="_blank">
                       <img
                         src="[slide:src]"
                         class="slider-item-img"
@@ -96,6 +106,7 @@ font-size: 11px;margin-bottom: 40px;">以专业成就客户，以协同定义未
       
       {/pboot:slide}
       </div>
+          </div>
     </div>
 
 
@@ -142,8 +153,9 @@ font-size: 11px;margin-bottom: 40px;">以专业成就客户，以协同定义未
     color: #21A29D;
     padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1rem, 2vw, 1.75rem);
     background: #FAFAFA;
-    max-width: 580px;
-    max-height: 288px;
+    /* max-width: 580px; */
+    max-width: 1052px;
+    max-height: clamp(200px, 40vw, 288px);
   }
   .slider-container1-item-right{
     display: grid;
@@ -165,7 +177,7 @@ font-size: 11px;margin-bottom: 40px;">以专业成就客户，以协同定义未
     width: 100%;
     height: fit-content;
     color: #fff;
-    padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 3vw, 6.75rem);
+    padding: clamp(3rem, 6vw, 7.5rem) clamp(1.5rem, 3vw, 6.75rem);
     text-align: center;
     /* background: #E4EDED; */
     background-image: url({pboot:sitepath}/static/upload/image/bg11.png);
@@ -175,6 +187,7 @@ font-size: 11px;margin-bottom: 40px;">以专业成就客户，以协同定义未
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: clamp(1.5rem, 3vw, 2rem);
+  grid-auto-rows: 1fr;
 }
 
 .slider-container2-item{
@@ -183,7 +196,7 @@ font-size: 11px;margin-bottom: 40px;">以专业成就客户，以协同定义未
   align-items: flex-start;
   background: rgba(0,0,0,0.62);
   border-radius: 7px;
-  height: fit-content;
+  height: 100%;
   padding: clamp(1rem, 2vw, 1.25rem);
   transition: all 0.3s ease;
   cursor: pointer;
@@ -227,7 +240,7 @@ font-size: 11px;margin-bottom: 40px;">以专业成就客户，以协同定义未
     height: fit-content;
     background: #E4EDED;
     color: #21A29D;
-    padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 3vw, 6.75rem);
+    padding: clamp(3rem, 6vw, 7.5rem) 0;
     text-align: center;
   }
   .slider-container4{
@@ -238,6 +251,7 @@ font-size: 11px;margin-bottom: 40px;">以专业成就客户，以协同定义未
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: clamp(1.5rem, 3vw, 2rem);
+    grid-auto-rows: 1fr;
   }
   .slider-item{
     display: flex;
@@ -285,10 +299,12 @@ font-size: 11px;margin-bottom: 40px;">以专业成就客户，以协同定义未
   .slider-item-img{
     width: 100%;
     transition: transform 0.3s ease;
+    height: 100%;
+    object-fit: cover;
   }
   .slider-item-title{
-    height: 56px;
-    line-height: 56px;
+    height: clamp(40px, 8vw, 56px);
+    line-height: clamp(40px, 8vw, 56px);
     background: #fff;
     width: 100%;
     font-weight: 600;
@@ -301,7 +317,8 @@ font-size: 11px;margin-bottom: 40px;">以专业成就客户，以协同定义未
   .slider-container4-grid{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap:0px;
+    grid-gap: 0px;
+    grid-auto-rows: 1fr;
   }
   
   /* 团队风采图片悬停动画 */
@@ -367,6 +384,22 @@ font-size: 11px;margin-bottom: 40px;">以专业成就客户，以协同定义未
 </style>
 
 <script>
+// 获取 URL 参数
+function getUrlParams() {
+  const params = {};
+  const queryString = window.location.search.substring(1);
+  const pairs = queryString.split('&');
+  
+  for (let i = 0; i < pairs.length; i++) {
+    const pair = pairs[i].split('=');
+    if (pair.length === 2) {
+      params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+    }
+  }
+  
+  return params;
+}
+
 // 防抖函数
 function debounce(func, wait) {
     let timeout;
@@ -400,7 +433,26 @@ const animateOnScroll = function() {
 // 监听滚动事件，触发动画
 window.addEventListener('scroll', debounce(animateOnScroll, 100));
 // 页面加载完成后，检查初始可见元素
-document.addEventListener('DOMContentLoaded', animateOnScroll);
+document.addEventListener('DOMContentLoaded', function() {
+  animateOnScroll();
+  
+  // 监听 URL 参数
+    const params = getUrlParams();
+    // 检查是否有跳转到特定部分的参数，例如 ?office=工作机会
+    if (params.office) {
+      const targetId = params.office === '公司简介' ? 'company-introduction' : params.office === '服务宗旨' ? 'service-purpose' : params.office === '团队风采' ? 'team-showcase' : params.office === '公司荣誉' ? 'company-honors' : null;
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        // 平滑滚动到目标元素
+           const offsetTop = targetElement.offsetTop - 57;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+      }
+    }
+});
 </script>
 
 {include file=comm/foot.html}
