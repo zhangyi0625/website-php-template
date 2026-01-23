@@ -502,41 +502,30 @@ function scrollToOffice(officeName, parentLink) {
             
 
                     <li class="nav-items">
-          <div class="language-selector" style="position: relative;">
-            <button type="button" class="nav-link" style="display: flex;align-items: center;border: none;background: none;padding: 0.5rem 1rem;">
-              <img src="{pboot:sitepath}/static/upload/image/en.gif" alt="" style="width: 20px;">
-              &nbsp;Language <i class="fa fa-caret-down" style="margin-left: 5px; font-size: 12px;"></i>
-            </button>
-            <div class="language-dropdown" style="position: absolute;top: 100%;right: 0;background: white;border: 1px solid #ddd;border-radius: 4px;box-shadow: 0 2px 4px rgba(0,0,0,0.1);z-index: 1000;min-width: 120px;display: none;">
-              <a href="{pboot:lgpath}&lg=cn" style="display: block;padding: 0.5rem 1rem;text-decoration: none;color: #333;border-bottom: 1px solid #f0f0f0;text-align: center;">
-                <!-- <img src="{pboot:sitepath}/static/upload/image/cn.gif" alt="" style="width: 16px;margin-right: 8px;"> -->
-                中文
-              </a>
-              <a href="{pboot:lgpath}&lg=en" style="display: block;padding: 0.5rem 1rem;text-decoration: none;color: #333;text-align: center;">
-                <!-- <img src="{pboot:sitepath}/static/upload/image/en.gif" alt="" style="width: 16px;margin-right: 8px;"> -->
-                English
-              </a>
-            </div>
-          </div>
           <script>
+            // 获取cookie中的语言设置
+            function getCookie(name) {
+              const value = `; ${document.cookie}`;
+              const parts = value.split(`; ${name}=`);
+              if (parts.length === 2) return parts.pop().split(';').shift();
+              return '';
+            }
+            
+            // 根据语言设置显示对应的语言切换链接
             document.addEventListener('DOMContentLoaded', function() {
-              const selector = document.querySelector('.language-selector');
-              const button = selector.querySelector('button');
-              const dropdown = selector.querySelector('.language-dropdown');
+              const languageContainer = document.getElementById('language-container');
+              const currentLang = getCookie('lg') || 'en';
               
-              button.addEventListener('click', function(e) {
-                e.preventDefault();
-                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-              });
-              
-              // 点击其他地方关闭下拉菜单
-              document.addEventListener('click', function(e) {
-                if (!selector.contains(e.target)) {
-                  dropdown.style.display = 'none';
-                }
-              });
+              if (currentLang === 'cn') {
+                // 中文状态下显示切换到英文
+                languageContainer.innerHTML = '<a href="{pboot:lgpath}&lg=en" class="nav-link" style="display: flex;align-items: center;"><img src="{pboot:sitepath}/static/upload/image/en.gif" alt="" style="width: 20px;">&nbsp;English</a>';
+              } else {
+                // 英文状态下显示切换到中文
+                languageContainer.innerHTML = '<a href="{pboot:lgpath}&lg=cn" class="nav-link" style="display: flex;align-items: center;"><img src="{pboot:sitepath}/static/upload/image/cn.gif" alt="" style="width: 20px;">&nbsp;中文</a>';
+              }
             });
           </script>
+          <div id="language-container" class="language-selector"></div>
         </li>
 	      </ul>
 	      
